@@ -50,17 +50,27 @@ backends, n-gram speculative decoding, and recurrent-state caching.
 
 ## Usage
 
+Build a checkpoint, serve it with any engine that has an OpenAI-compatible API, and check it:
+
 ```sh
 python construct.py --arch llama --out ckpt_llama      # or qwen3
 python construct_hybrid.py --out ckpt_hybrid
 python make_ctl.py                                     # negative control: must fail
 
-./vrun.sh --ckpt ckpt_llama --name default --family random --ms 64,512,2048 --n 128 --engine '{}'
-./vllm_sweep.sh ckpt_llama                             # the full matrix
-./vllm_bug64279.sh                                     # a historical bug replay
+vllm serve ckpt_llama --enable-prefix-caching          # or SGLang, TensorRT-LLM, ...
+python check.py http://localhost:8000 ckpt_llama --family shared --passes 2
 ```
 
-Set `PY` to the Python of the vLLM build under test.
+`check.py` prints exact matches and the lowest margin per prompt size, and exits with 1 on any
+failure. The features you test are the server's own flags.
+
+For vLLM there is also an in-process matrix and the historical bug replays. Set `PY` to the Python of
+the build under test:
+
+```sh
+./vllm_sweep.sh ckpt_llama
+./vllm_bug64279.sh
+```
 
 ## Limits
 
