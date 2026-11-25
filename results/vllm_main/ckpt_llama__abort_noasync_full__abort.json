@@ -1,0 +1,133 @@
+{
+ "name": "abort_noasync_full",
+ "ckpt": "ckpt_llama",
+ "scenario": "abort",
+ "family": "shared",
+ "engine": {
+  "model": "ckpt_llama",
+  "skip_tokenizer_init": true,
+  "dtype": "bfloat16",
+  "seed": 0,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.55,
+  "max_num_seqs": 128,
+  "disable_log_stats": false,
+  "num_gpu_blocks_override": 600,
+  "max_num_batched_tokens": 256,
+  "async_scheduling": false,
+  "speculative_config": {
+   "method": "ngram",
+   "num_speculative_tokens": 4,
+   "prompt_lookup_min": 1,
+   "prompt_lookup_max": 4
+  }
+ },
+ "params": {
+  "abort_steps": [
+   20,
+   150,
+   500
+  ],
+  "frac": 0.25
+ },
+ "info": {
+  "vllm": "0.34.1rc1.dev107+g69d3af837",
+  "torch": "2.14.0+cu130",
+  "max_num_batched_tokens": 256,
+  "max_num_seqs": 128,
+  "async_scheduling": false,
+  "policy": "fcfs",
+  "prefix_caching": true,
+  "block_size": 64,
+  "num_gpu_blocks": 600,
+  "cudagraph_mode": "FULL_AND_PIECEWISE",
+  "kv_transfer": "None",
+  "spec": "SpeculativeConfig(method='ngram', model=None, num_spec_tokens=4)",
+  "env": {
+   "VLLM_ENABLE_V1_MULTIPROCESSING": "0"
+  }
+ },
+ "secs_load": 190.5,
+ "secs_gen": 36.3,
+ "metrics": {
+  "vllm:spec_decode_num_drafts": 49182,
+  "vllm:spec_decode_num_draft_tokens": 196728,
+  "vllm:spec_decode_num_accepted_tokens": 49875,
+  "vllm:spec_decode_num_verified_tokens": 196728,
+  "vllm:spec_decode_num_accepted_tokens_per_pos": [
+   49129,
+   371,
+   371,
+   4
+  ],
+  "vllm:spec_decode_num_verified_tokens_per_pos{position=0}": 49182,
+  "vllm:spec_decode_num_verified_tokens_per_pos{position=1}": 49182,
+  "vllm:spec_decode_num_verified_tokens_per_pos{position=2}": 49182,
+  "vllm:spec_decode_num_verified_tokens_per_pos{position=3}": 49182,
+  "vllm:prefix_cache_queries": 135517,
+  "vllm:prefix_cache_hits": 99008,
+  "vllm:external_prefix_cache_queries": 0,
+  "vllm:external_prefix_cache_hits": 0,
+  "vllm:num_preemptions": 21,
+  "vllm:request_num_preemptions": {
+   "count": 160,
+   "sum": 19.0
+  },
+  "maxrss_mb_self": 2398
+ },
+ "per_tag": {
+  "orig": {
+   "exact": "72/72",
+   "aborted_prefix_ok": "56/56",
+   "unfinished": 0,
+   "margin": {
+    "n": 38040,
+    "min": 38.5,
+    "p0_1": 39.0,
+    "median": 39.0
+   },
+   "seq_min_margin_min": 38.5,
+   "sampled_not_rank1": 0,
+   "margin_alarm_seqs": 0,
+   "cached_prompt_tokens": 36672,
+   "prompt_tokens": 74112,
+   "tokens_after_abort": 0
+  },
+  "dup": {
+   "exact": "60/60",
+   "aborted_prefix_ok": "14/14",
+   "unfinished": 0,
+   "margin": {
+    "n": 48089,
+    "min": 38.5,
+    "p0_1": 39.0,
+    "median": 39.0
+   },
+   "seq_min_margin_min": 38.5,
+   "sampled_not_rank1": 0,
+   "margin_alarm_seqs": 0,
+   "cached_prompt_tokens": 38784,
+   "prompt_tokens": 58424,
+   "tokens_after_abort": 0
+  },
+  "resume": {
+   "exact": "28/28",
+   "aborted_prefix_ok": "4/4",
+   "unfinished": 0,
+   "margin": {
+    "n": 13064,
+    "min": 38.5,
+    "p0_1": 39.0,
+    "median": 39.0
+   },
+   "seq_min_margin_min": 38.5,
+   "sampled_not_rank1": 0,
+   "margin_alarm_seqs": 0,
+   "cached_prompt_tokens": 23552,
+   "prompt_tokens": 35574,
+   "tokens_after_abort": 0
+  }
+ },
+ "extra": {},
+ "fails": []
+}

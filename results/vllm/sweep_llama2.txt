@@ -1,0 +1,133 @@
+=== default (random, ms=64,512,2048, n=128) {}
+waiting: only 2737 MB available
+waiting: only 2732 MB available
+waiting: only 2748 MB available
+log: /home/ansat/projects/glassbox/results/vllm/logs/175726_--ckpt_ckpt_llama_--name_default_--family_random_--ms_64,512,2048_--n_128_--engine____.log
+RESULT {"name": "default", "family": "random", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 2, "vllm:request_num_preemptions": null}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5
+rc=0
+=== fp8_triton (random, ms=64,512,2048, n=128) {"kv_cache_dtype": "fp8", "attention_config": {"backend": "TRITON_ATTN"}}
+log: /home/ansat/projects/glassbox/results/vllm/logs/180014_--ckpt_ckpt_llama_--name_fp8_triton_--family_random_--ms_64,512,2048_--n_128_--engine___kv_cache_dtype____fp8_,__attenti.log
+rc=1
+=== fp8_triton_eager (random, ms=64,512,2048, n=128) {"kv_cache_dtype": "fp8", "attention_config": {"backend": "TRITON_ATTN"}, "enforce_eager": true}
+waiting: only 4382 MB available
+waiting: only 4133 MB available
+waiting: only 3945 MB available
+waiting: only 3462 MB available
+waiting: only 3236 MB available
+waiting: only 2989 MB available
+waiting: only 2551 MB available
+waiting: only 3579 MB available
+waiting: only 3543 MB available
+waiting: only 3492 MB available
+waiting: only 3443 MB available
+waiting: only 3413 MB available
+waiting: only 3399 MB available
+waiting: only 3370 MB available
+waiting: only 4326 MB available
+waiting: only 4316 MB available
+waiting: only 4315 MB available
+waiting: only 4317 MB available
+waiting: only 4311 MB available
+waiting: only 4296 MB available
+waiting: only 4299 MB available
+waiting: only 4299 MB available
+waiting: only 4307 MB available
+waiting: only 4304 MB available
+waiting: only 4308 MB available
+waiting: only 4319 MB available
+waiting: only 4293 MB available
+waiting: only 4260 MB available
+waiting: only 4241 MB available
+waiting: only 4195 MB available
+waiting: only 4211 MB available
+waiting: only 4151 MB available
+waiting: only 4175 MB available
+waiting: only 4177 MB available
+waiting: only 4167 MB available
+waiting: only 4164 MB available
+waiting: only 4165 MB available
+waiting: only 4231 MB available
+waiting: only 4210 MB available
+waiting: only 4202 MB available
+waiting: only 4183 MB available
+waiting: only 4181 MB available
+waiting: only 4178 MB available
+waiting: only 4180 MB available
+waiting: only 4173 MB available
+waiting: only 4144 MB available
+waiting: only 4139 MB available
+waiting: only 4126 MB available
+waiting: only 4180 MB available
+waiting: only 4223 MB available
+waiting: only 4287 MB available
+waiting: only 4308 MB available
+log: /home/ansat/projects/glassbox/results/vllm/logs/181818_--ckpt_ckpt_llama_--name_fp8_triton_eager_--family_random_--ms_64,512,2048_--n_128_--engine___kv_cache_dtype____fp8_,__a.log
+rc=1
+=== fp8e5m2_triton (random, ms=64,512,2048, n=128) {"kv_cache_dtype": "fp8_e5m2", "attention_config": {"backend": "TRITON_ATTN"}}
+waiting: only 4427 MB available
+waiting: only 4379 MB available
+waiting: only 4322 MB available
+waiting: only 4260 MB available
+waiting: only 4205 MB available
+waiting: only 4140 MB available
+waiting: only 4084 MB available
+waiting: only 4054 MB available
+waiting: only 3985 MB available
+waiting: only 3933 MB available
+waiting: only 3871 MB available
+waiting: only 3799 MB available
+waiting: only 3746 MB available
+waiting: only 3682 MB available
+waiting: only 3621 MB available
+waiting: only 3520 MB available
+waiting: only 3420 MB available
+waiting: only 3361 MB available
+waiting: only 3270 MB available
+waiting: only 3207 MB available
+waiting: only 3240 MB available
+waiting: only 3180 MB available
+waiting: only 3142 MB available
+waiting: only 3079 MB available
+waiting: only 3071 MB available
+waiting: only 3022 MB available
+waiting: only 3124 MB available
+waiting: only 3071 MB available
+waiting: only 3007 MB available
+waiting: only 2959 MB available
+waiting: only 2856 MB available
+waiting: only 2813 MB available
+waiting: only 2838 MB available
+waiting: only 3014 MB available
+waiting: only 3134 MB available
+waiting: only 3204 MB available
+waiting: only 3210 MB available
+waiting: only 3193 MB available
+waiting: only 3169 MB available
+waiting: only 3265 MB available
+log: /home/ansat/projects/glassbox/results/vllm/logs/183249_--ckpt_ckpt_llama_--name_fp8e5m2_triton_--family_random_--ms_64,512,2048_--n_128_--engine___kv_cache_dtype____fp8_e5m2_,.log
+rc=1
+=== fp8_triton_shared (shared, ms=64,512,2048, n=128) {"kv_cache_dtype": "fp8", "attention_config": {"backend": "TRITON_ATTN"}}
+log: /home/ansat/projects/glassbox/results/vllm/logs/183311_--ckpt_ckpt_llama_--name_fp8_triton_shared_--family_shared_--ms_64,512,2048_--n_128_--engine___kv_cache_dtype____fp8_,__.log
+rc=1
+=== hf_impl (random, ms=64,512,2048, n=128) {"model_impl": "transformers"}
+log: /home/ansat/projects/glassbox/results/vllm/logs/183334_--ckpt_ckpt_llama_--name_hf_impl_--family_random_--ms_64,512,2048_--n_128_--engine___model_impl____transformers___.log
+RESULT {"name": "hf_impl", "family": "random", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 1, "vllm:request_num_preemptions": null}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5
+rc=0
+=== seqs8 (random, ms=64,512, n=128) {"max_num_seqs": 8}
+log: /home/ansat/projects/glassbox/results/vllm/logs/183529_--ckpt_ckpt_llama_--name_seqs8_--family_random_--ms_64,512_--n_128_--engine___max_num_seqs___8__.log
+RESULT {"name": "seqs8", "family": "random", "metrics": {"vllm:prefix_cache_queries": 148224, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "vllm:request_num_preemptions": null}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, 
+rc=0
+=== seqs256 (random, ms=64,512,2048, n=256) {"max_num_seqs": 256}
+log: /home/ansat/projects/glassbox/results/vllm/logs/183718_--ckpt_ckpt_llama_--name_seqs256_--family_random_--ms_64,512,2048_--n_256_--engine___max_num_seqs___256__.log
+RESULT {"name": "seqs256", "family": "random", "metrics": {"vllm:prefix_cache_queries": 1345792, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 121, "vllm:request_num_preemptions": null}, "per_m": {"64": {"exact": "256/256", "margin": {"n": 32768, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 33536}, "512": {"exact": "256/256", "margin": {"n": 262144, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 3
+rc=0
+=== noasync (random, ms=64,512,2048, n=128) {"async_scheduling": false}
+waiting: only 2633 MB available
+waiting: only 1945 MB available
+waiting: only 1866 MB available
+waiting: only 1548 MB available
+waiting: only 1812 MB available
+waiting: only 3070 MB available
+waiting: only 2825 MB available
+waiting: only 639 MB available
+waiting: only 328 MB available

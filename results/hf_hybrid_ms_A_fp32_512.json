@@ -1,0 +1,59 @@
+{
+ "results": {
+  "fp32/m512/tf": {
+   "dtype": "fp32",
+   "group": "m512",
+   "path": "tf",
+   "exact": "32/32",
+   "lens": [
+    1027,
+    "..."
+   ],
+   "margin": {
+    "n": 32768,
+    "min": 39.577857971191406,
+    "p0_1": 39.577857971191406,
+    "p1": 39.577857971191406,
+    "median": 39.74027633666992
+   },
+   "seq_min_below_30": 0,
+   "secs": 9.1
+  },
+  "fp32/m512/chunk": {
+   "dtype": "fp32",
+   "group": "m512",
+   "path": "chunk",
+   "exact": "32/32",
+   "lens": [
+    1027,
+    "..."
+   ],
+   "margin": {
+    "n": 32768,
+    "min": 39.577857971191406,
+    "p0_1": 39.577857971191406,
+    "p1": 39.577857971191406,
+    "median": 39.74028396606445
+   },
+   "seq_min_below_30": 0,
+   "secs": 42.3
+  }
+ },
+ "fails": [],
+ "args": {
+  "ckpt": "/home/ansat/projects/glassbox/ckpt_hybrid",
+  "set": "ms",
+  "ms": "512",
+  "n": "32",
+  "blocks": "64,528",
+  "nblocks": "1,2,3",
+  "rs": "0-16",
+  "dtypes": "fp32",
+  "paths": "tf,chunk",
+  "prefill_chunk": 100,
+  "cont_chunk": 37,
+  "bs": 1,
+  "seed": 1234,
+  "tag": "_A_fp32_512"
+ }
+}

@@ -1,0 +1,92 @@
+{
+ "name": "shared_block16",
+ "ckpt": "ckpt_llama",
+ "family": "shared",
+ "engine": {
+  "model": "ckpt_llama",
+  "skip_tokenizer_init": true,
+  "dtype": "bfloat16",
+  "seed": 0,
+  "max_model_len": 9216,
+  "gpu_memory_utilization": 0.55,
+  "max_num_seqs": 128,
+  "disable_log_stats": false,
+  "block_size": 16
+ },
+ "info": {
+  "vllm": "0.34.0",
+  "torch": "2.14.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+  "max_model_len": 9216,
+  "max_num_batched_tokens": 8192,
+  "max_num_seqs": 128,
+  "async_scheduling": true,
+  "model_impl": "auto",
+  "compilation_mode": "3",
+  "prefix_caching": true,
+  "block_size": 16,
+  "kv_cache_dtype": "auto",
+  "num_gpu_blocks": 65024,
+  "enforce_eager": false,
+  "cudagraph_mode": "FULL_AND_PIECEWISE",
+  "rope": "{'rope_type': 'default', 'rope_theta': 1000000000000.0}",
+  "env": {
+   "VLLM_ENABLE_V1_MULTIPROCESSING": "0",
+   "VLLM_OBJECT_STORAGE_SHM_BUFFER_NAME": "vllm_mm_QLUgqAaFSneWkY6iNYROMA"
+  },
+  "attn_backend": "None"
+ },
+ "secs_load": 12.7,
+ "secs_gen": 58.7,
+ "metrics": {
+  "vllm:prefix_cache_queries": 672896,
+  "vllm:prefix_cache_hits": 499872,
+  "vllm:external_prefix_cache_queries": 0,
+  "vllm:external_prefix_cache_hits": 0,
+  "vllm:num_preemptions": 0,
+  "vllm:request_num_preemptions": null,
+  "maxrss_mb_self": 2394
+ },
+ "per_m": {
+  "64": {
+   "exact": "128/128",
+   "margin": {
+    "n": 16384,
+    "min": 38.5,
+    "p0_1": 39.0,
+    "median": 39.0
+   },
+   "seq_min_margin_min": 38.5,
+   "sampled_not_rank1": 0,
+   "cached_prompt_tokens": 12192,
+   "prompt_tokens": 16768
+  },
+  "512": {
+   "exact": "128/128",
+   "margin": {
+    "n": 131072,
+    "min": 38.5,
+    "p0_1": 38.5,
+    "median": 39.0
+   },
+   "seq_min_margin_min": 38.5,
+   "sampled_not_rank1": 0,
+   "cached_prompt_tokens": 97536,
+   "prompt_tokens": 131456
+  },
+  "2048": {
+   "exact": "128/128",
+   "margin": {
+    "n": 524288,
+    "min": 38.5,
+    "p0_1": 39.0,
+    "median": 39.0
+   },
+   "seq_min_margin_min": 38.5,
+   "sampled_not_rank1": 0,
+   "cached_prompt_tokens": 390144,
+   "prompt_tokens": 524672
+  }
+ },
+ "fails": []
+}

@@ -1,0 +1,74 @@
+=== bug36580_pre_v2 (vllm-36580pre, V2=1, random) {}
+log: /home/ansat/projects/glassbox/results/vllm/logs/235032_--ckpt_ckpt_llama_--name_bug36580_pre_v2_--family_random_--ms_64,512_--n_128_--engine____.log
+RESULT {"name": "bug36580_pre_v2", "family": "random", "metrics": {"vllm:prefix_cache_queries": 148224, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "maxrss_mb_self": 1957}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "margin_alarm_seqs": 0, "margin_alarm_but_exact_seqs": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "margin_alarm_seqs": 0
+rc=0
+=== bug36580_fix_v2 (vllm-36580fix, V2=1, random) {}
+log: /home/ansat/projects/glassbox/results/vllm/logs/002732_--ckpt_ckpt_llama_--name_bug36580_fix_v2_--family_random_--ms_64,512_--n_128_--engine____.log
+RESULT {"name": "bug36580_fix_v2", "family": "random", "metrics": {"vllm:prefix_cache_queries": 148224, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "maxrss_mb_self": 1843}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "margin_alarm_seqs": 0, "margin_alarm_but_exact_seqs": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "margin_alarm_seqs": 0
+rc=0
+=== bug36580_pre_v2_chunk (vllm-36580pre, V2=1, random) {"max_num_batched_tokens": 256}
+log: /home/ansat/projects/glassbox/results/vllm/logs/003940_--ckpt_ckpt_llama_--name_bug36580_pre_v2_chunk_--family_random_--ms_64,512_--n_128_--engine___max_num_batched_tokens___2.log
+RESULT {"name": "bug36580_pre_v2_chunk", "family": "random", "metrics": {"vllm:prefix_cache_queries": 148224, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "maxrss_mb_self": 1896}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "margin_alarm_seqs": 0, "margin_alarm_but_exact_seqs": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "127/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "margin_alarm_se
+rc=0
+=== bug36580_fix_v2_chunk (vllm-36580fix, V2=1, random) {"max_num_batched_tokens": 256}
+log: /home/ansat/projects/glassbox/results/vllm/logs/004304_--ckpt_ckpt_llama_--name_bug36580_fix_v2_chunk_--family_random_--ms_64,512_--n_128_--engine___max_num_batched_tokens___2.log
+RESULT {"name": "bug36580_fix_v2_chunk", "family": "random", "metrics": {"vllm:prefix_cache_queries": 148224, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "maxrss_mb_self": 1888}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "margin_alarm_seqs": 0, "margin_alarm_but_exact_seqs": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "margin_alarm_se
+rc=0
+=== bug36580_pre_v1 (vllm-36580pre, V2=0, random) {}
+log: /home/ansat/projects/glassbox/results/vllm/logs/005920_--ckpt_ckpt_llama_--name_bug36580_pre_v1_--family_random_--ms_64,512_--n_128_--engine____.log
+RESULT {"name": "bug36580_pre_v1", "family": "random", "metrics": {"vllm:prefix_cache_queries": 148224, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "maxrss_mb_self": 1961}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "margin_alarm_seqs": 0, "margin_alarm_but_exact_seqs": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "margin_alarm_seqs": 0
+rc=0
+=== bug36580_pre_v2_eager (vllm-36580pre, V2=1, random) {"enforce_eager": true}
+log: /home/ansat/projects/glassbox/results/vllm/logs/010212_--ckpt_ckpt_llama_--name_bug36580_pre_v2_eager_--family_random_--ms_64,512_--n_128_--engine___enforce_eager___true__.log
+RESULT {"name": "bug36580_pre_v2_eager", "family": "random", "metrics": {"vllm:prefix_cache_queries": 148224, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "maxrss_mb_self": 1902}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "margin_alarm_seqs": 0, "margin_alarm_but_exact_seqs": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "margin_alarm_se
+rc=0
+./vllm_bug36580.sh: line 27: vllm-36580fix: command not found
+./vllm_bug36580.sh: line 27: random: command not found
+./vllm_bug36580.sh: line 27: 36580_fix_v2: command not found
+./vllm_bug36580.sh: line 27: 1: command not found
+./vllm_bug36580.sh: line 27: {}: command not found
+./vllm_bug36580.sh: line 28: random: command not found
+./vllm_bug36580.sh: line 28: 1: command not found
+./vllm_bug36580.sh: line 28: vllm-36580pre: command not found
+./vllm_bug36580.sh: line 28: bug36580_pre_v2_chunk: command not found
+./vllm_bug36580.sh: line 28: {max_num_batched_tokens:: command not found
+./vllm_bug36580.sh: line 29: 1: command not found
+./vllm_bug36580.sh: line 29: bug36580_fix_v2_chunk: command not found
+./vllm_bug36580.sh: line 29: {max_num_batched_tokens:: command not found
+./vllm_bug36580.sh: line 29: vllm-36580fix: command not found
+./vllm_bug36580.sh: line 29: random: command not found
+./vllm_bug36580.sh: line 31: {}: command not found
+./vllm_bug36580.sh: line 31: bug36580_pre_v1: command not found
+./vllm_bug36580.sh: line 31: random: command not found
+./vllm_bug36580.sh: line 31: 0: command not found
+./vllm_bug36580.sh: line 31: vllm-36580pre: command not found
+./vllm_bug36580.sh: line 32: 1: command not found
+./vllm_bug36580.sh: line 32: random: command not found
+./vllm_bug36580.sh: line 32: {enforce_eager:: command not found
+./vllm_bug36580.sh: line 32: bug36580_pre_v2_eager: command not found
+./vllm_bug36580.sh: line 32: vllm-36580pre: command not found
+./vllm_bug36580.sh: line 36: mix: command not found
+./vllm_bug36580.sh: line 36: 1: command not found
+./vllm_bug36580.sh: line 36: vllm-36580pre: command not found
+./vllm_bug36580.sh: line 36: bug36580_pre_v2_churn: command not found
+./vllm_bug36580.sh: line 37: bug36580_fix_v2_churn: command not found
+./vllm_bug36580.sh: line 37: 1: command not found
+./vllm_bug36580.sh: line 37: vllm-36580fix: command not found
+./vllm_bug36580.sh: line 37: mix: command not found
+./vllm_bug36580.sh: line 38: mix: command not found
+./vllm_bug36580.sh: line 38: 1: command not found
+./vllm_bug36580.sh: line 38: bug36580_pre_v2_churn_nopc: command not found
+./vllm_bug36580.sh: line 38: vllm-36580pre: command not found
+./vllm_bug36580.sh: line 39: 1: command not found
+./vllm_bug36580.sh: line 39: bug36580_fix_v2_churn_nopc: command not found
+./vllm_bug36580.sh: line 39: vllm-36580fix: command not found
+./vllm_bug36580.sh: line 39: mix: command not found
+./vllm_bug36580.sh: line 40: bug36580_pre_v1_churn: command not found
+./vllm_bug36580.sh: line 40: 0: command not found
+./vllm_bug36580.sh: line 40: mix: command not found
+./vllm_bug36580.sh: line 40: vllm-36580pre: command not found
+./vllm_bug36580.sh: line 41: mix: command not found
+./vllm_bug36580.sh: line 41: bug36580_pre_v2_churn_eager: command not found
+./vllm_bug36580.sh: line 41: 1: command not found
+./vllm_bug36580.sh: line 41: vllm-36580pre: command not found
+./vllm_bug36580.sh: line 42: LIST: command not found

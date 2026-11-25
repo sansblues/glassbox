@@ -1,0 +1,13 @@
+=== preempt (random, ms=512,2048, n=128) {"num_gpu_blocks_override": 1000}
+log: /home/ansat/projects/glassbox/results/vllm/logs/210243_--ckpt_ckpt_qwen3_--name_preempt_--family_random_--ms_512,2048_--n_128_--engine___num_gpu_blocks_override___1000__.log
+RESULT {"name": "preempt", "family": "random", "metrics": {"vllm:prefix_cache_queries": 656128, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 177, "vllm:request_num_preemptions": null, "maxrss_mb_self": 2342}, "per_m": {"512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 131456}, "2048": {"exact": "128/128", "margin": {"n": 524288, "min": 38.5, "p0_1": 39.0, "median": 39.
+rc=0
+=== shared (shared, ms=64,512,2048, n=128) {}
+log: /home/ansat/projects/glassbox/results/vllm/logs/211233_--ckpt_ckpt_qwen3_--name_shared_--family_shared_--ms_64,512,2048_--n_128_--engine____.log
+RESULT {"name": "shared", "family": "shared", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 495808, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "vllm:request_num_preemptions": null, "maxrss_mb_self": 2378}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "margin_alarm_seqs": 0, "margin_alarm_but_exact_seqs": 0, "cached_prompt_tokens": 8128, "prompt_tokens": 16768}, "512": {"exact": "128/128", "marg
+rc=0
+=== relabel (relabel, ms=64,512,2048, n=128) {}
+log: /home/ansat/projects/glassbox/results/vllm/logs/211522_--ckpt_ckpt_qwen3_--name_relabel_--family_relabel_--ms_64,512,2048_--n_128_--engine____.log
+RESULT {"name": "relabel", "family": "relabel", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 201152, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "vllm:request_num_preemptions": null, "maxrss_mb_self": 2356}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 39.0, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 39.0, "sampled_not_rank1": 0, "margin_alarm_seqs": 0, "margin_alarm_but_exact_seqs": 0, "cached_prompt_tokens": 1984, "prompt_tokens": 16768}, "512": {"exact": "128/128", "ma
+rc=0
+SWEEPQB_DONE

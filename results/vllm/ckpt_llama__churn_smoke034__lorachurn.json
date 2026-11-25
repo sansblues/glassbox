@@ -1,0 +1,127 @@
+{
+ "name": "churn_smoke034",
+ "ckpt": "ckpt_llama",
+ "family": "antipodal",
+ "engine": {
+  "model": "/home/ansat/projects/glassbox/ckpt_llama",
+  "skip_tokenizer_init": true,
+  "dtype": "bfloat16",
+  "seed": 0,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.55,
+  "max_num_seqs": 128,
+  "disable_log_stats": false,
+  "enable_lora": true,
+  "max_loras": 2,
+  "max_cpu_loras": 4,
+  "max_lora_rank": 64
+ },
+ "info": {
+  "vllm": "0.34.0",
+  "torch": "2.14.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+  "async_scheduling": true,
+  "prefix_caching": true,
+  "block_size": 64,
+  "cudagraph_mode": "FULL_AND_PIECEWISE",
+  "env": {
+   "VLLM_ENABLE_V1_MULTIPROCESSING": "0",
+   "VLLM_OBJECT_STORAGE_SHM_BUFFER_NAME": "vllm_mm_qhQHPx-lTPGj707Xg-ksdg"
+  }
+ },
+ "secs_load": 22.1,
+ "phases": [
+  {
+   "phase": "ref",
+   "steps": 129,
+   "add_lora_calls": 0,
+   "secs_gen": 1.1,
+   "by_adapter": {
+    "A1:oflip": {
+     "per_m": {
+      "64": {
+       "exact": "16/16",
+       "margin": {
+        "n": 2048,
+        "min": 38.5,
+        "p0_1": 39.0,
+        "median": 39.0
+       },
+       "sampled_not_rank1": 0,
+       "margin_alarm_seqs": 0,
+       "first_divergence_antipodal": 0,
+       "cached_prompt_tokens": 0,
+       "prompt_tokens": 2096
+      }
+     },
+     "fails": []
+    },
+    "A2:zero": {
+     "per_m": {
+      "64": {
+       "exact": "16/16",
+       "margin": {
+        "n": 2048,
+        "min": 39.0,
+        "p0_1": 39.0,
+        "median": 39.0
+       },
+       "sampled_not_rank1": 0,
+       "margin_alarm_seqs": 0,
+       "first_divergence_antipodal": 0,
+       "cached_prompt_tokens": 0,
+       "prompt_tokens": 2096
+      }
+     },
+     "fails": []
+    }
+   }
+  },
+  {
+   "phase": "churn",
+   "steps": 129,
+   "add_lora_calls": 258,
+   "secs_gen": 1.5,
+   "by_adapter": {
+    "A1:oflip": {
+     "per_m": {
+      "64": {
+       "exact": "16/16",
+       "margin": {
+        "n": 2048,
+        "min": 38.5,
+        "p0_1": 39.0,
+        "median": 39.0
+       },
+       "sampled_not_rank1": 0,
+       "margin_alarm_seqs": 0,
+       "first_divergence_antipodal": 0,
+       "cached_prompt_tokens": 2048,
+       "prompt_tokens": 2096
+      }
+     },
+     "fails": []
+    },
+    "A2:zero": {
+     "per_m": {
+      "64": {
+       "exact": "16/16",
+       "margin": {
+        "n": 2048,
+        "min": 39.0,
+        "p0_1": 39.0,
+        "median": 39.0
+       },
+       "sampled_not_rank1": 0,
+       "margin_alarm_seqs": 0,
+       "first_divergence_antipodal": 0,
+       "cached_prompt_tokens": 2048,
+       "prompt_tokens": 2096
+      }
+     },
+     "fails": []
+    }
+   }
+  }
+ ]
+}

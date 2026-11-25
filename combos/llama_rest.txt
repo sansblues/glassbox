@@ -1,0 +1,19 @@
+# remainder of the Llama full sweep (vllm_sweep_main.sh stopped after mix to keep long jobs < 15 min under CPU contention)
+shared|ckpt_llama|shared|64,512,2048|128||{}
+shared_nopc|ckpt_llama|shared|64,512,2048|128||{"enable_prefix_caching": false}
+shared_chunk|ckpt_llama|shared|64,512,2048|128||{"max_num_batched_tokens": 256}
+shared_block16|ckpt_llama|shared|64,512,2048|128||{"block_size": 16}
+shared_preempt|ckpt_llama|shared|512,2048|128||{"num_gpu_blocks_override": 1000}
+relabel|ckpt_llama|relabel|64,512,2048|128||{}
+relabel_chunk|ckpt_llama|relabel|64,512,2048|128||{"max_num_batched_tokens": 256}
+relabel_block16|ckpt_llama|relabel|64,512,2048|128||{"block_size": 16}
+relabel_preempt|ckpt_llama|relabel|512,2048|128||{"num_gpu_blocks_override": 1000}
+long4096|ckpt_llama|random|4096|48||{"max_model_len": 17408}
+long4096_chunk|ckpt_llama|random|4096|32||{"max_model_len": 17408, "max_num_batched_tokens": 1024}
+ngram|ckpt_llama|random|64,512,2048|128||{"speculative_config": {"method": "ngram", "num_speculative_tokens": 4, "prompt_lookup_min": 1, "prompt_lookup_max": 4}}
+ngram_shared|ckpt_llama|shared|64,512,2048|128||{"speculative_config": {"method": "ngram", "num_speculative_tokens": 4, "prompt_lookup_min": 1, "prompt_lookup_max": 4}}
+ngram_relabel|ckpt_llama|relabel|64,512,2048|128||{"speculative_config": {"method": "ngram", "num_speculative_tokens": 4, "prompt_lookup_min": 1, "prompt_lookup_max": 4}}
+ngram_chunk|ckpt_llama|random|64,512,2048|128||{"max_num_batched_tokens": 256, "speculative_config": {"method": "ngram", "num_speculative_tokens": 4, "prompt_lookup_min": 1, "prompt_lookup_max": 4}}
+ngram_preempt|ckpt_llama|random|512,2048|128||{"num_gpu_blocks_override": 1000, "speculative_config": {"method": "ngram", "num_speculative_tokens": 4, "prompt_lookup_min": 1, "prompt_lookup_max": 4}}
+ngram_noasync|ckpt_llama|random|64,512,2048|128||{"async_scheduling": false, "speculative_config": {"method": "ngram", "num_speculative_tokens": 4, "prompt_lookup_min": 1, "prompt_lookup_max": 4}}
+rope1e4|ckpt_llama|random|64,512|128||{"hf_overrides": {"rope_theta": 10000.0, "rope_parameters": {"rope_type": "default", "rope_theta": 10000.0}}}

@@ -1,0 +1,160 @@
+{
+ "name": "gb_034_ngram5_ab",
+ "ckpt": "ckpt_hybrid",
+ "family": "abpair",
+ "engine": {
+  "model": "ckpt_hybrid",
+  "skip_tokenizer_init": true,
+  "dtype": "bfloat16",
+  "seed": 0,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.55,
+  "max_num_seqs": 128,
+  "disable_log_stats": false,
+  "enable_prefix_caching": true,
+  "max_num_batched_tokens": 576,
+  "speculative_config": {
+   "method": "ngram",
+   "num_speculative_tokens": 5,
+   "prompt_lookup_max": 5,
+   "prompt_lookup_min": 1
+  }
+ },
+ "info": {
+  "vllm": "0.34.0",
+  "torch": "2.14.0+cu130",
+  "gpu": "NVIDIA GeForce RTX 3050 Ti Laptop GPU",
+  "max_model_len": 4096,
+  "max_num_batched_tokens": 576,
+  "max_num_seqs": 128,
+  "async_scheduling": true,
+  "model_impl": "auto",
+  "compilation_mode": "0",
+  "prefix_caching": true,
+  "block_size": 576,
+  "kv_cache_dtype": "auto",
+  "num_gpu_blocks": 710,
+  "enforce_eager": false,
+  "cudagraph_mode": "FULL_AND_PIECEWISE",
+  "rope": "{'rope_type': 'default', 'rope_theta': 10000000.0, 'partial_rotary_factor': 0.25}",
+  "mamba_cache_mode": "align",
+  "mamba_block_size": 576,
+  "mamba_ssm_cache_dtype": "float32",
+  "mamba_cache_dtype": "auto",
+  "spec": "SpeculativeConfig(method='ngram', model=None, num_spec_tokens=5)",
+  "env": {
+   "VLLM_USE_FLASHINFER_SAMPLER": "0",
+   "VLLM_ENABLE_V1_MULTIPROCESSING": "0",
+   "VLLM_OBJECT_STORAGE_SHM_BUFFER_NAME": "vllm_mm_q-sVgdwXRW-KvJffQDgyQQ"
+  },
+  "attn_backend": "None"
+ },
+ "secs_load": 76.6,
+ "secs_gen": 78.6,
+ "metrics": {
+  "vllm:spec_decode_num_drafts": 3473,
+  "vllm:spec_decode_num_draft_tokens": 17365,
+  "vllm:spec_decode_num_accepted_tokens": 3577,
+  "vllm:spec_decode_num_accepted_tokens_per_pos": null,
+  "vllm:prefix_cache_queries": 7068,
+  "vllm:prefix_cache_hits": 3456,
+  "vllm:external_prefix_cache_queries": 0,
+  "vllm:external_prefix_cache_hits": 0,
+  "vllm:num_preemptions": 0,
+  "vllm:request_num_preemptions": null,
+  "maxrss_mb_self": 2269
+ },
+ "per_m": {
+  "A:N1r6": {
+   "exact": "1/1",
+   "margin": {
+    "n": 578,
+    "min": 39.75,
+    "p0_1": 39.75,
+    "median": 39.75
+   },
+   "seq_min_margin_min": 39.75,
+   "sampled_not_rank1": 0,
+   "margin_alarm_seqs": 0,
+   "margin_alarm_but_exact_seqs": 0,
+   "cached_prompt_tokens": 0,
+   "prompt_tokens": 582
+  },
+  "B:N1r6": {
+   "exact": "1/1",
+   "margin": {
+    "n": 618,
+    "min": 39.75,
+    "p0_1": 39.75,
+    "median": 39.75
+   },
+   "seq_min_margin_min": 39.75,
+   "sampled_not_rank1": 0,
+   "margin_alarm_seqs": 0,
+   "margin_alarm_but_exact_seqs": 0,
+   "cached_prompt_tokens": 576,
+   "prompt_tokens": 622
+  },
+  "A:N2r6": {
+   "exact": "1/1",
+   "margin": {
+    "n": 1154,
+    "min": 39.75,
+    "p0_1": 39.75,
+    "median": 39.75
+   },
+   "seq_min_margin_min": 39.75,
+   "sampled_not_rank1": 0,
+   "margin_alarm_seqs": 0,
+   "margin_alarm_but_exact_seqs": 0,
+   "cached_prompt_tokens": 0,
+   "prompt_tokens": 1158
+  },
+  "B:N2r6": {
+   "exact": "1/1",
+   "margin": {
+    "n": 1194,
+    "min": 39.75,
+    "p0_1": 39.75,
+    "median": 39.75
+   },
+   "seq_min_margin_min": 39.75,
+   "sampled_not_rank1": 0,
+   "margin_alarm_seqs": 0,
+   "margin_alarm_but_exact_seqs": 0,
+   "cached_prompt_tokens": 1152,
+   "prompt_tokens": 1198
+  },
+  "A:N3r6": {
+   "exact": "1/1",
+   "margin": {
+    "n": 1730,
+    "min": 39.75,
+    "p0_1": 39.75,
+    "median": 39.75
+   },
+   "seq_min_margin_min": 39.75,
+   "sampled_not_rank1": 0,
+   "margin_alarm_seqs": 0,
+   "margin_alarm_but_exact_seqs": 0,
+   "cached_prompt_tokens": 0,
+   "prompt_tokens": 1734
+  },
+  "B:N3r6": {
+   "exact": "1/1",
+   "margin": {
+    "n": 1770,
+    "min": 39.75,
+    "p0_1": 39.75,
+    "median": 39.75
+   },
+   "seq_min_margin_min": 39.75,
+   "sampled_not_rank1": 0,
+   "margin_alarm_seqs": 0,
+   "margin_alarm_but_exact_seqs": 0,
+   "cached_prompt_tokens": 1728,
+   "prompt_tokens": 1774
+  }
+ },
+ "fails": []
+}

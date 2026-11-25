@@ -1,0 +1,7 @@
+smoke_abort|ckpt_llama|abort|shared|64|16|{"abort_steps": [10, 40], "frac": 0.3}|{"enforce_eager": true}
+smoke_stops|ckpt_llama|stops|shared|64|16|{"waves": 2, "wave_every": 20}|{"enforce_eager": true}
+smoke_prio|ckpt_llama|priority|shared|64|16|{"inject_at": 20}|{"enforce_eager": true, "scheduling_policy": "priority"}
+smoke_nfork|ckpt_llama|nfork|shared|64|8|{"n_fork": 3}|{"enforce_eager": true}
+smoke_plp|ckpt_llama|plp|shared|64|8|{}|{"enforce_eager": true}
+smoke_lora|ckpt_llama|lora_mix|random|64|4|{}|{"enforce_eager": true}
+smoke_sleep|ckpt_llama|sleep|shared|64|16|{"at": 30, "level": 1, "mode": "keep"}|{"enforce_eager": true, "enable_sleep_mode": true}

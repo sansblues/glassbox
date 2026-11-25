@@ -1,0 +1,96 @@
+=== eager (random, ms=64,512,2048, n=128) {"enforce_eager": true}
+log: /home/ansat/projects/glassbox/results/vllm/logs/165830_--ckpt_ckpt_llama_--name_eager_--family_random_--ms_64,512,2048_--n_128_--engine___enforce_eager___true__.log
+RESULT {"name": "eager", "family": "random", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "vllm:request_num_preemptions": null}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, 
+rc=0
+=== nopc (random, ms=64,512,2048, n=128) {"enable_prefix_caching": false}
+log: /home/ansat/projects/glassbox/results/vllm/logs/165947_--ckpt_ckpt_llama_--name_nopc_--family_random_--ms_64,512,2048_--n_128_--engine___enable_prefix_caching___false__.log
+RESULT {"name": "nopc", "family": "random", "metrics": {"vllm:prefix_cache_queries": 0, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 2, "vllm:request_num_preemptions": null}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampl
+rc=0
+=== chunk256 (random, ms=64,512,2048, n=128) {"max_num_batched_tokens": 256}
+log: /home/ansat/projects/glassbox/results/vllm/logs/170129_--ckpt_ckpt_llama_--name_chunk256_--family_random_--ms_64,512,2048_--n_128_--engine___max_num_batched_tokens___256__.log
+RESULT {"name": "chunk256", "family": "random", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "vllm:request_num_preemptions": null}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.
+rc=0
+=== block16 (random, ms=64,512,2048, n=128) {"block_size": 16}
+log: /home/ansat/projects/glassbox/results/vllm/logs/170328_--ckpt_ckpt_llama_--name_block16_--family_random_--ms_64,512,2048_--n_128_--engine___block_size___16__.log
+RESULT {"name": "block16", "family": "random", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 1, "vllm:request_num_preemptions": null}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5
+rc=0
+=== block32 (random, ms=64,512,2048, n=128) {"block_size": 32}
+log: /home/ansat/projects/glassbox/results/vllm/logs/170509_--ckpt_ckpt_llama_--name_block32_--family_random_--ms_64,512,2048_--n_128_--engine___block_size___32__.log
+RESULT {"name": "block32", "family": "random", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 1, "vllm:request_num_preemptions": null}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5
+rc=0
+=== block128 (random, ms=64,512,2048, n=128) {"block_size": 128}
+log: /home/ansat/projects/glassbox/results/vllm/logs/170652_--ckpt_ckpt_llama_--name_block128_--family_random_--ms_64,512,2048_--n_128_--engine___block_size___128__.log
+RESULT {"name": "block128", "family": "random", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 2, "vllm:request_num_preemptions": null}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.
+rc=0
+=== triton (random, ms=64,512,2048, n=128) {"attention_config": {"backend": "TRITON_ATTN"}}
+log: /home/ansat/projects/glassbox/results/vllm/logs/170834_--ckpt_ckpt_llama_--name_triton_--family_random_--ms_64,512,2048_--n_128_--engine___attention_config_____backend____TRIT.log
+RESULT {"name": "triton", "family": "random", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 2, "vllm:request_num_preemptions": null}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5,
+rc=0
+=== flex (random, ms=64,512,2048, n=128) {"attention_config": {"backend": "FLEX_ATTENTION"}}
+log: /home/ansat/projects/glassbox/results/vllm/logs/171011_--ckpt_ckpt_llama_--name_flex_--family_random_--ms_64,512,2048_--n_128_--engine___attention_config_____backend____FLEX_A.log
+RESULT {"name": "flex", "family": "random", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 5, "vllm:request_num_preemptions": null}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "
+rc=0
+=== fp8 (random, ms=64,512,2048, n=128) {"kv_cache_dtype": "fp8"}
+log: /home/ansat/projects/glassbox/results/vllm/logs/171244_--ckpt_ckpt_llama_--name_fp8_--family_random_--ms_64,512,2048_--n_128_--engine___kv_cache_dtype____fp8___.log
+rc=1
+=== fp8eager (random, ms=64,512,2048, n=128) {"kv_cache_dtype": "fp8", "enforce_eager": true}
+log: /home/ansat/projects/glassbox/results/vllm/logs/171318_--ckpt_ckpt_llama_--name_fp8eager_--family_random_--ms_64,512,2048_--n_128_--engine___kv_cache_dtype____fp8_,__enforce_e.log
+rc=1
+=== preempt (random, ms=512,2048, n=128) {"num_gpu_blocks_override": 1000}
+log: /home/ansat/projects/glassbox/results/vllm/logs/171338_--ckpt_ckpt_llama_--name_preempt_--family_random_--ms_512,2048_--n_128_--engine___num_gpu_blocks_override___1000__.log
+RESULT {"name": "preempt", "family": "random", "metrics": {"vllm:prefix_cache_queries": 656128, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 177, "vllm:request_num_preemptions": null}, "per_m": {"512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 131456}, "2048": {"exact": "128/128", "margin": {"n": 524288, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min"
+rc=0
+=== preempt_nopc (random, ms=512,2048, n=128) {"num_gpu_blocks_override": 1000, "enable_prefix_caching": false}
+log: /home/ansat/projects/glassbox/results/vllm/logs/171747_--ckpt_ckpt_llama_--name_preempt_nopc_--family_random_--ms_512,2048_--n_128_--engine___num_gpu_blocks_override___1000,__.log
+RESULT {"name": "preempt_nopc", "family": "random", "metrics": {"vllm:prefix_cache_queries": 0, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 177, "vllm:request_num_preemptions": null}, "per_m": {"512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 131456}, "2048": {"exact": "128/128", "margin": {"n": 524288, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min"
+rc=0
+=== preempt_chunk (random, ms=512,2048, n=128) {"num_gpu_blocks_override": 1000, "max_num_batched_tokens": 512}
+log: /home/ansat/projects/glassbox/results/vllm/logs/172245_--ckpt_ckpt_llama_--name_preempt_chunk_--family_random_--ms_512,2048_--n_128_--engine___num_gpu_blocks_override___1000,_.log
+RESULT {"name": "preempt_chunk", "family": "random", "metrics": {"vllm:prefix_cache_queries": 656128, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 177, "vllm:request_num_preemptions": null}, "per_m": {"512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 131456}, "2048": {"exact": "128/128", "margin": {"n": 524288, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margi
+rc=0
+=== mix (mix, ms=64,512,2048, n=128) {}
+log: /home/ansat/projects/glassbox/results/vllm/logs/172656_--ckpt_ckpt_llama_--name_mix_--family_mix_--ms_64,512,2048_--n_128_--engine____.log
+RESULT {"name": "mix", "family": "mix", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "vllm:request_num_preemptions": null}, "per_m": {"512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 131456}, "64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sam
+rc=0
+=== shared (shared, ms=64,512,2048, n=128) {}
+log: /home/ansat/projects/glassbox/results/vllm/logs/172824_--ckpt_ckpt_llama_--name_shared_--family_shared_--ms_64,512,2048_--n_128_--engine____.log
+RESULT {"name": "shared", "family": "shared", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 495808, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "vllm:request_num_preemptions": null}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 8128, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 38.5, "median": 39.0}, "seq_min_margin_min
+rc=0
+=== shared_nopc (shared, ms=64,512,2048, n=128) {"enable_prefix_caching": false}
+log: /home/ansat/projects/glassbox/results/vllm/logs/172950_--ckpt_ckpt_llama_--name_shared_nopc_--family_shared_--ms_64,512,2048_--n_128_--engine___enable_prefix_caching___false__.log
+RESULT {"name": "shared_nopc", "family": "shared", "metrics": {"vllm:prefix_cache_queries": 0, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 2, "vllm:request_num_preemptions": null}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 38.5, "median": 39.0}, "seq_min_margin_min": 38.5,
+rc=0
+=== shared_chunk (shared, ms=64,512,2048, n=128) {"max_num_batched_tokens": 256}
+log: /home/ansat/projects/glassbox/results/vllm/logs/173122_--ckpt_ckpt_llama_--name_shared_chunk_--family_shared_--ms_64,512,2048_--n_128_--engine___max_num_batched_tokens___256__.log
+RESULT {"name": "shared_chunk", "family": "shared", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 495808, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "vllm:request_num_preemptions": null}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 8128, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 38.5, "median": 39.0}, "seq_min_marg
+rc=0
+=== shared_pmu16 (shared, ms=64,512,2048, n=128) {"prefix_match_unit": 16}
+log: /home/ansat/projects/glassbox/results/vllm/logs/173244_--ckpt_ckpt_llama_--name_shared_pmu16_--family_shared_--ms_64,512,2048_--n_128_--engine___prefix_match_unit___16__.log
+rc=1
+=== shared_preempt (shared, ms=512,2048, n=128) {"num_gpu_blocks_override": 1000}
+log: /home/ansat/projects/glassbox/results/vllm/logs/173308_--ckpt_ckpt_llama_--name_shared_preempt_--family_shared_--ms_512,2048_--n_128_--engine___num_gpu_blocks_override___1000_.log
+RESULT {"name": "shared_preempt", "family": "shared", "metrics": {"vllm:prefix_cache_queries": 656128, "vllm:prefix_cache_hits": 487680, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 388, "vllm:request_num_preemptions": null}, "per_m": {"512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 97536, "prompt_tokens": 131456}, "2048": {"exact": "128/128", "margin": {"n": 524288, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq
+rc=0
+=== relabel (relabel, ms=64,512,2048, n=128) {}
+log: /home/ansat/projects/glassbox/results/vllm/logs/173529_--ckpt_ckpt_llama_--name_relabel_--family_relabel_--ms_64,512,2048_--n_128_--engine____.log
+RESULT {"name": "relabel", "family": "relabel", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 201152, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "vllm:request_num_preemptions": null}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 39.0, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 39.0, "sampled_not_rank1": 0, "cached_prompt_tokens": 1984, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 39.0, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_m
+rc=0
+=== relabel_chunk (relabel, ms=64,512,2048, n=128) {"max_num_batched_tokens": 256}
+log: /home/ansat/projects/glassbox/results/vllm/logs/173647_--ckpt_ckpt_llama_--name_relabel_chunk_--family_relabel_--ms_64,512,2048_--n_128_--engine___max_num_batched_tokens___256.log
+RESULT {"name": "relabel_chunk", "family": "relabel", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 201152, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "vllm:request_num_preemptions": null}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 39.0, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 39.0, "sampled_not_rank1": 0, "cached_prompt_tokens": 1984, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 39.0, "p0_1": 39.0, "median": 39.0}, "seq_min_ma
+rc=0
+=== relabel_pmu16 (relabel, ms=64,512,2048, n=128) {"prefix_match_unit": 16}
+log: /home/ansat/projects/glassbox/results/vllm/logs/173832_--ckpt_ckpt_llama_--name_relabel_pmu16_--family_relabel_--ms_64,512,2048_--n_128_--engine___prefix_match_unit___16__.log
+rc=1
+=== relabel_preempt (relabel, ms=512,2048, n=128) {"num_gpu_blocks_override": 1000}
+log: /home/ansat/projects/glassbox/results/vllm/logs/173854_--ckpt_ckpt_llama_--name_relabel_preempt_--family_relabel_--ms_512,2048_--n_128_--engine___num_gpu_blocks_override___100.log
+RESULT {"name": "relabel_preempt", "family": "relabel", "metrics": {"vllm:prefix_cache_queries": 656128, "vllm:prefix_cache_hits": 224192, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 231, "vllm:request_num_preemptions": null}, "per_m": {"512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 38.5, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 43200, "prompt_tokens": 131456}, "2048": {"exact": "128/128", "margin": {"n": 524288, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "s
+rc=0
+=== long4096 (random, ms=4096, n=128) {"max_model_len": 17408}
+log: /home/ansat/projects/glassbox/results/vllm/logs/174152_--ckpt_ckpt_llama_--name_long4096_--family_random_--ms_4096_--n_128_--engine___max_model_len___17408__.log
+RESULT {"name": "long4096", "family": "random", "metrics": {"vllm:prefix_cache_queries": 1048960, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 62, "vllm:request_num_preemptions": null}, "per_m": {"4096": {"exact": "128/128", "margin": {"n": 1048576, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 1048960}}, "fails": []}
+rc=0
+=== long4096_chunk (random, ms=4096, n=64) {"max_model_len": 17408, "max_num_batched_tokens": 1024}
+log: /home/ansat/projects/glassbox/results/vllm/logs/174734_--ckpt_ckpt_llama_--name_long4096_chunk_--family_random_--ms_4096_--n_64_--engine___max_model_len___17408,__max_num_batc.log
+RESULT {"name": "long4096_chunk", "family": "random", "metrics": {"vllm:prefix_cache_queries": 524480, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "vllm:request_num_preemptions": null}, "per_m": {"4096": {"exact": "64/64", "margin": {"n": 524288, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 524480}}, "fails": []}
+rc=0

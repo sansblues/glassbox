@@ -1,0 +1,32 @@
+=== default (random, ms=64,512,2048, n=128) {}
+log: /home/ansat/projects/glassbox/results/vllm/logs/192335_--ckpt_ckpt_qwen3_--name_default_--family_random_--ms_64,512,2048_--n_128_--engine____.log
+RESULT {"name": "default", "family": "random", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 2, "vllm:request_num_preemptions": null, "maxrss_mb_self": 2471}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "s
+rc=0
+=== eager (random, ms=64,512,2048, n=128) {"enforce_eager": true}
+log: /home/ansat/projects/glassbox/results/vllm/logs/192557_--ckpt_ckpt_qwen3_--name_eager_--family_random_--ms_64,512,2048_--n_128_--engine___enforce_eager___true__.log
+RESULT {"name": "eager", "family": "random", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "vllm:request_num_preemptions": null, "maxrss_mb_self": 2367}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq
+rc=0
+=== chunk256 (random, ms=64,512,2048, n=128) {"max_num_batched_tokens": 256}
+log: /home/ansat/projects/glassbox/results/vllm/logs/192737_--ckpt_ckpt_qwen3_--name_chunk256_--family_random_--ms_64,512,2048_--n_128_--engine___max_num_batched_tokens___256__.log
+RESULT {"name": "chunk256", "family": "random", "metrics": {"vllm:prefix_cache_queries": 672896, "vllm:prefix_cache_hits": 0, "vllm:external_prefix_cache_queries": 0, "vllm:external_prefix_cache_hits": 0, "vllm:num_preemptions": 0, "vllm:request_num_preemptions": null, "maxrss_mb_self": 2461}, "per_m": {"64": {"exact": "128/128", "margin": {"n": 16384, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "seq_min_margin_min": 38.5, "sampled_not_rank1": 0, "cached_prompt_tokens": 0, "prompt_tokens": 16768}, "512": {"exact": "128/128", "margin": {"n": 131072, "min": 38.5, "p0_1": 39.0, "median": 39.0}, "
+rc=0
+=== preempt (random, ms=512,2048, n=128) {"num_gpu_blocks_override": 1000}
+waiting: MemAvailable 4585 MB, SwapFree 8179 MB
+waiting: MemAvailable 3841 MB, SwapFree 8179 MB
+waiting: MemAvailable 3606 MB, SwapFree 8179 MB
+waiting: MemAvailable 3531 MB, SwapFree 8179 MB
+waiting: MemAvailable 3347 MB, SwapFree 8179 MB
+waiting: MemAvailable 3424 MB, SwapFree 8179 MB
+waiting: MemAvailable 2660 MB, SwapFree 8179 MB
+waiting: MemAvailable 3126 MB, SwapFree 8179 MB
+waiting: MemAvailable 3063 MB, SwapFree 8173 MB
+waiting: MemAvailable 4677 MB, SwapFree 8174 MB
+waiting: MemAvailable 1882 MB, SwapFree 8173 MB
+waiting: MemAvailable 2550 MB, SwapFree 8170 MB
+waiting: MemAvailable 2527 MB, SwapFree 8170 MB
+waiting: MemAvailable 2458 MB, SwapFree 8170 MB
+waiting: MemAvailable 2246 MB, SwapFree 8170 MB
+waiting: MemAvailable 2364 MB, SwapFree 8170 MB
+waiting: MemAvailable 2353 MB, SwapFree 8170 MB
+log: /home/ansat/projects/glassbox/results/vllm/logs/193825_--ckpt_ckpt_qwen3_--name_preempt_--family_random_--ms_512,2048_--n_128_--engine___num_gpu_blocks_override___1000__.log
+SWEEPQ_DONE

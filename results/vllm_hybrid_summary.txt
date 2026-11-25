@@ -1,0 +1,17 @@
+boundary_pc2             238/238 min=39.66 alarms=0 gen_tok=549416 cached=0 (p2 0) blk=576 ssm=float32 mnbt=8192 eager=False preempt=182 spec_acc=None fails=0
+boundary_pc2_small       102/102 min=39.66 alarms=0 gen_tok=117960 cached=36288 (p2 36288) blk=576 ssm=float32 mnbt=8192 eager=False preempt=0 spec_acc=None fails=0
+boundary_pc2_small_bf16  170/170 min=39.66 alarms=0 gen_tok=163960 cached=13120 (p2 13120) blk=320 ssm=bfloat16 mnbt=8192 eager=False preempt=0 spec_acc=None fails=0
+boundary_pc2_small_chunk 102/102 min=39.66 alarms=0 gen_tok=117960 cached=57024 (p2 57024) blk=576 ssm=float32 mnbt=256 eager=False preempt=0 spec_acc=None fails=0
+chunk256                 192/192 min=39.66 alarms=0 gen_tok=335872 cached=0 (p2 0) blk=576 ssm=float32 mnbt=256 eager=False preempt=58 spec_acc=None fails=0
+default                  192/192 min=39.66 alarms=0 gen_tok=335872 cached=0 (p2 0) blk=576 ssm=float32 mnbt=8192 eager=False preempt=69 spec_acc=None fails=0
+eager                    192/192 min=39.66 alarms=0 gen_tok=335872 cached=0 (p2 0) blk=576 ssm=float32 mnbt=8192 eager=True preempt=54 spec_acc=None fails=0
+gdn_triton_decode        192/192 min=39.66 alarms=0 gen_tok=335872 cached=0 (p2 0) blk=576 ssm=float32 mnbt=8192 eager=False preempt=69 spec_acc=None fails=0
+ngram                    64/64 min=39.66 alarms=0 gen_tok=36864 cached=0 (p2 0) blk=576 ssm=float32 mnbt=8192 eager=False preempt=16 spec_acc=18481 fails=0
+ngram_pc2                128/128 min=39.66 alarms=0 gen_tok=73728 cached=35712 (p2 17856) blk=576 ssm=float32 mnbt=8192 eager=False preempt=26 spec_acc=37116 fails=0
+nopc                     192/192 min=39.66 alarms=0 gen_tok=335872 cached=0 (p2 0) blk=576 ssm=float32 mnbt=8192 eager=False preempt=28 spec_acc=None fails=0
+preempt16                64/64 min=39.75 alarms=0 gen_tok=163840 cached=0 (p2 0) blk=576 ssm=float32 mnbt=8192 eager=False preempt=196 spec_acc=None fails=0
+relabel_pc2              192/192 min=39.66 alarms=0 gen_tok=270336 cached=42624 (p2 21888) blk=576 ssm=float32 mnbt=8192 eager=False preempt=59 spec_acc=None fails=0
+shared_pc2               192/192 min=39.66 alarms=0 gen_tok=335872 cached=211392 (p2 107136) blk=576 ssm=float32 mnbt=8192 eager=False preempt=10 spec_acc=None fails=0
+shared_preempt16         96/96 min=39.75 alarms=0 gen_tok=245760 cached=42624 (p2 21312) blk=576 ssm=float32 mnbt=8192 eager=False preempt=198 spec_acc=None fails=0
+sharedblk_pc2            272/272 min=39.66 alarms=0 gen_tok=459096 cached=202752 (p2 101376) blk=576 ssm=float32 mnbt=8192 eager=False preempt=190 spec_acc=None fails=0
+ssm_bf16                 192/192 min=39.66 alarms=0 gen_tok=335872 cached=0 (p2 0) blk=320 ssm=bfloat16 mnbt=8192 eager=False preempt=86 spec_acc=None fails=0

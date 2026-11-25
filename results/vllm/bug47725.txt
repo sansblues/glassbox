@@ -1,0 +1,5 @@
+=== bug47725_pre (vllm-47725pre) phases=ref,churn,ref {}
+log: /home/ansat/projects/glassbox/results/vllm/logs/114135_--ckpt_ckpt_llama_--name_bug47725_pre_--phases_ref,churn,ref_--ms_64,512_--n_128_--engine____.log
+RESULT [{"phase": "ref", "exact": {"A1:oflip": {"64": "64/64", "512": "64/64"}, "A2:zero": {"64": "64/64", "512": "64/64"}}}, {"phase": "churn", "exact": {"A1:oflip": {"64": "64/64", "512": "64/64"}, "A2:zero": {"64": "64/64", "512": "64/64"}}}, {"phase": "ref", "exact": {"A1:oflip": {"64": "64/64", "512": "64/64"}, "A2:zero": {"64": "64/64", "512": "64/64"}}}]
+rc=0
+=== bug47725_fix (vllm-47725fix) phases=ref,churn,ref {}

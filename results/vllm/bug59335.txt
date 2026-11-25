@@ -1,0 +1,16 @@
+=== bug59335_pre_samename (vllm-lorapre) phases=vflip:glass,zero:glass {}
+log: /home/ansat/projects/glassbox/results/vllm/logs/103023_--ckpt_ckpt_llama_--name_bug59335_pre_samename_--phases_vflip_glass,zero_glass_--ms_64,512_--n_128_--engine____.log
+RESULT {"vflip:glass": {"64": "128/128", "512": "128/128"}, "zero:glass": {"64": "0/128", "512": "0/128"}}
+rc=0
+=== bug59335_fix_samename (vllm-lorafix) phases=vflip:glass,zero:glass {}
+log: /home/ansat/projects/glassbox/results/vllm/logs/105623_--ckpt_ckpt_llama_--name_bug59335_fix_samename_--phases_vflip_glass,zero_glass_--ms_64,512_--n_128_--engine____.log
+RESULT {"vflip:glass": {"64": "128/128", "512": "128/128"}, "zero:glass": {"64": "128/128", "512": "128/128"}}
+rc=0
+=== bug59335_pre_distinct (vllm-lorapre) phases=vflip:glass_v,zero:glass_z {}
+log: /home/ansat/projects/glassbox/results/vllm/logs/112823_--name_bug59335_pre_distinct_--phases_vflip_glass_v,zero_glass_z_--ms_64,512_--n_128_--engine____.log
+RESULT {"vflip:glass_v": {"64": "128/128", "512": "128/128"}, "zero:glass_z": {"64": "128/128", "512": "128/128"}}
+rc=0
+=== bug59335_pre_samename_nopc (vllm-lorapre) phases=vflip:glass,zero:glass {"enable_prefix_caching": false}
+log: /home/ansat/projects/glassbox/results/vllm/logs/113552_--name_bug59335_pre_samename_nopc_--phases_vflip_glass,zero_glass_--ms_64,512_--n_128_--engine___enable_prefix_caching__.log
+RESULT {"vflip:glass": {"64": "128/128", "512": "128/128"}, "zero:glass": {"64": "128/128", "512": "128/128"}}
+rc=0

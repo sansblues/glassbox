@@ -1,0 +1,101 @@
+{
+ "none": {
+  "n": 200,
+  "detected": 0,
+  "explained": 0,
+  "predictable": 0,
+  "first_wrong": {
+   "miss": 0,
+   "ptr": 0,
+   "key": 0,
+   "other": 0
+  },
+  "margin_at_div": [],
+  "margin_at_divergence_median": NaN,
+  "margin_at_divergence_min": NaN
+ },
+ "same_blk": {
+  "n": 200,
+  "detected": 200,
+  "explained": 200,
+  "predictable": 200,
+  "first_wrong": {
+   "miss": 200,
+   "ptr": 0,
+   "key": 0,
+   "other": 0
+  },
+  "margin_at_divergence_median": 61.0,
+  "margin_at_divergence_min": 1.0
+ },
+ "other_blk": {
+  "n": 200,
+  "detected": 200,
+  "explained": 198,
+  "predictable": 198,
+  "first_wrong": {
+   "miss": 200,
+   "ptr": 0,
+   "key": 0,
+   "other": 0
+  },
+  "margin_at_divergence_median": 61.0,
+  "margin_at_divergence_min": 0.75
+ },
+ "zero_blk": {
+  "n": 200,
+  "detected": 200,
+  "explained": 193,
+  "predictable": 193,
+  "first_wrong": {
+   "miss": 200,
+   "ptr": 0,
+   "key": 0,
+   "other": 0
+  },
+  "margin_at_divergence_median": 61.0,
+  "margin_at_divergence_min": 57.6875
+ },
+ "leak_blk": {
+  "n": 200,
+  "detected": 137,
+  "explained": 137,
+  "predictable": 137,
+  "first_wrong": {
+   "miss": 137,
+   "ptr": 0,
+   "key": 0,
+   "other": 0
+  },
+  "margin_at_divergence_median": 11.0,
+  "margin_at_divergence_min": 0.5
+ },
+ "pos_prefill": {
+  "n": 200,
+  "detected": 200,
+  "explained": 0,
+  "predictable": 0,
+  "first_wrong": {
+   "miss": 200,
+   "ptr": 0,
+   "key": 0,
+   "other": 0
+  },
+  "margin_at_divergence_median": 61.0,
+  "margin_at_divergence_min": 61.0
+ },
+ "pos_decode": {
+  "n": 200,
+  "detected": 200,
+  "explained": 0,
+  "predictable": 0,
+  "first_wrong": {
+   "miss": 200,
+   "ptr": 0,
+   "key": 0,
+   "other": 0
+  },
+  "margin_at_divergence_median": 69.0,
+  "margin_at_divergence_min": 68.0
+ }
+}

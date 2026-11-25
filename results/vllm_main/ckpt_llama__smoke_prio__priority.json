@@ -1,0 +1,90 @@
+{
+ "name": "smoke_prio",
+ "ckpt": "ckpt_llama",
+ "scenario": "priority",
+ "family": "shared",
+ "engine": {
+  "model": "ckpt_llama",
+  "skip_tokenizer_init": true,
+  "dtype": "bfloat16",
+  "seed": 0,
+  "max_model_len": 4096,
+  "gpu_memory_utilization": 0.55,
+  "max_num_seqs": 128,
+  "disable_log_stats": false,
+  "enforce_eager": true,
+  "scheduling_policy": "priority"
+ },
+ "params": {
+  "inject_at": 20
+ },
+ "info": {
+  "vllm": "0.34.1rc1.dev107+g69d3af837",
+  "torch": "2.14.0+cu130",
+  "max_num_batched_tokens": 8192,
+  "max_num_seqs": 128,
+  "async_scheduling": true,
+  "policy": "priority",
+  "prefix_caching": true,
+  "block_size": 64,
+  "num_gpu_blocks": 16768,
+  "cudagraph_mode": "NONE",
+  "kv_transfer": "None",
+  "spec": "None",
+  "env": {
+   "VLLM_ENABLE_V1_MULTIPROCESSING": "0"
+  }
+ },
+ "secs_load": 14.6,
+ "secs_gen": 4.0,
+ "metrics": {
+  "vllm:prefix_cache_queries": 2096,
+  "vllm:prefix_cache_hits": 960,
+  "vllm:external_prefix_cache_queries": 0,
+  "vllm:external_prefix_cache_hits": 0,
+  "vllm:num_preemptions": 0,
+  "vllm:request_num_preemptions": {
+   "count": 16,
+   "sum": 0.0
+  },
+  "maxrss_mb_self": 1885
+ },
+ "per_tag": {
+  "low": {
+   "exact": "8/8",
+   "aborted_prefix_ok": "0/0",
+   "unfinished": 0,
+   "margin": {
+    "n": 1024,
+    "min": 39.0,
+    "p0_1": 39.0,
+    "median": 39.0
+   },
+   "seq_min_margin_min": 39.0,
+   "sampled_not_rank1": 0,
+   "margin_alarm_seqs": 0,
+   "cached_prompt_tokens": 448,
+   "prompt_tokens": 1048,
+   "tokens_after_abort": 0
+  },
+  "high": {
+   "exact": "8/8",
+   "aborted_prefix_ok": "0/0",
+   "unfinished": 0,
+   "margin": {
+    "n": 1024,
+    "min": 39.0,
+    "p0_1": 39.0,
+    "median": 39.0
+   },
+   "seq_min_margin_min": 39.0,
+   "sampled_not_rank1": 0,
+   "margin_alarm_seqs": 0,
+   "cached_prompt_tokens": 512,
+   "prompt_tokens": 1048,
+   "tokens_after_abort": 0
+  }
+ },
+ "extra": {},
+ "fails": []
+}

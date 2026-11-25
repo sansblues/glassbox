@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+
+# Checkpoints are rebuilt by construct.py, construct_hybrid.py and make_ctl.py
+ckpt_*/
+
+# Raw engine logs
+results/vllm/logs/
+*.log
+
+# Held back until the upstream reports are filed
+findings/
+STATUS_hybrid_main.md
+results/vllm_main_hybrid/
+vllm_check_hybrid_main.py
+vllm_combo_fx.py
+vllm_sweep_hybrid_main2.sh
+vllm_combo_main2.sh
+summ_main2.py
+combos/hybrid_main2_*
+results/vllm034_hybrid/

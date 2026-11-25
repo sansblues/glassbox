@@ -1,0 +1,30 @@
+# --- abort mid-generation with shared prefixes; aborted requests re-sent as dup + resume (prompt + partial output)
+abort_pc|ckpt_llama|abort|shared|64,512|64|{"abort_steps": [20, 150, 500], "frac": 0.25}|{}
+abort_full|ckpt_llama|abort|shared|64,512|64|{"abort_steps": [20, 150, 500], "frac": 0.25}|{"num_gpu_blocks_override": 600, "max_num_batched_tokens": 256, "speculative_config": {"method": "ngram", "num_speculative_tokens": 4, "prompt_lookup_min": 1, "prompt_lookup_max": 4}}
+abort_relabel_full|ckpt_llama|abort|relabel|64,512|64|{"abort_steps": [20, 150, 500], "frac": 0.25}|{"num_gpu_blocks_override": 600, "max_num_batched_tokens": 256, "speculative_config": {"method": "ngram", "num_speculative_tokens": 4, "prompt_lookup_min": 1, "prompt_lookup_max": 4}}
+abort_noasync_full|ckpt_llama|abort|shared|64,512|64|{"abort_steps": [20, 150, 500], "frac": 0.25}|{"num_gpu_blocks_override": 600, "max_num_batched_tokens": 256, "async_scheduling": false, "speculative_config": {"method": "ngram", "num_speculative_tokens": 4, "prompt_lookup_min": 1, "prompt_lookup_max": 4}}
+# --- early finish (random max_tokens, stop tokens) + arriving waves
+stops_pc|ckpt_llama|stops|shared|64,512|96|{"waves": 6, "wave_every": 40}|{"num_gpu_blocks_override": 600}
+stops_full|ckpt_llama|stops|shared|64,512|96|{"waves": 6, "wave_every": 40}|{"num_gpu_blocks_override": 600, "max_num_batched_tokens": 256, "speculative_config": {"method": "ngram", "num_speculative_tokens": 4, "prompt_lookup_min": 1, "prompt_lookup_max": 4}}
+# --- priority scheduling with preemption by priority
+prio_preempt|ckpt_llama|priority|shared|64,512|64|{"inject_at": 60}|{"scheduling_policy": "priority", "num_gpu_blocks_override": 400}
+prio_full|ckpt_llama|priority|shared|64,512|64|{"inject_at": 60}|{"scheduling_policy": "priority", "num_gpu_blocks_override": 400, "max_num_batched_tokens": 256, "speculative_config": {"method": "ngram", "num_speculative_tokens": 4, "prompt_lookup_min": 1, "prompt_lookup_max": 4}}
+# --- parallel sampling n>1 greedy
+nfork_pc|ckpt_llama|nfork|shared|64,512|32|{"n_fork": 4, "passes": 2}|{}
+nfork_full|ckpt_llama|nfork|shared|64,512|32|{"n_fork": 4, "passes": 2}|{"num_gpu_blocks_override": 500, "max_num_batched_tokens": 256, "speculative_config": {"method": "ngram", "num_speculative_tokens": 4, "prompt_lookup_min": 1, "prompt_lookup_max": 4}}
+# --- prompt logprobs mixed with plain requests sharing prefixes
+plp_pc|ckpt_llama|plp|shared|64,512|32|{"frac": 0.5, "passes": 2}|{}
+plp_chunk|ckpt_llama|plp|shared|64,512|32|{"frac": 0.5, "passes": 2}|{"max_num_batched_tokens": 256, "num_gpu_blocks_override": 500}
+plp_start_cached|ckpt_llama|plp|shared|64,512|32|{"frac": 0.5, "passes": 2, "start": "random", "skip_read": false}|{}
+plp_start_cached_chunk|ckpt_llama|plp|shared|64,512|32|{"frac": 0.5, "passes": 2, "start": "random", "skip_read": false}|{"max_num_batched_tokens": 256, "num_gpu_blocks_override": 500}
+# --- mixed LoRA / no-LoRA batches (identical prompts per adapter kind)
+lora_mix2|ckpt_llama|lora_mix|random|64,512|16|{"passes": 2}|{"max_loras": 2}
+lora_mix1|ckpt_llama|lora_mix|random|64,512|16|{"passes": 2}|{"max_loras": 1}
+lora_mix_full|ckpt_llama|lora_mix|random|64,512|16|{"passes": 2}|{"max_loras": 2, "num_gpu_blocks_override": 400, "max_num_batched_tokens": 256}
+# --- sleep mode mid-generation
+sleep_l1_keep|ckpt_llama|sleep|shared|64,512|48|{"at": 60, "level": 1, "mode": "keep"}|{"enable_sleep_mode": true}
+sleep_l1_abort|ckpt_llama|sleep|shared|64,512|48|{"at": 60, "level": 1, "mode": "abort"}|{"enable_sleep_mode": true}
+sleep_l2_keep|ckpt_llama|sleep|shared|64,512|48|{"at": 60, "level": 2, "mode": "keep"}|{"enable_sleep_mode": true}
+sleep_l0_keep|ckpt_llama|sleep|shared|64,512|48|{"at": 60, "level": 0, "mode": "keep"}|{"enable_sleep_mode": true}
+sleep_l0_release|ckpt_llama|sleep|shared|64,512|48|{"at": 60, "level": 0, "mode": "keep", "release": true}|{"enable_sleep_mode": true}
+sleep_l1_keep_full|ckpt_llama|sleep|shared|64,512|48|{"at": 60, "level": 1, "mode": "keep"}|{"enable_sleep_mode": true, "num_gpu_blocks_override": 600, "max_num_batched_tokens": 256, "speculative_config": {"method": "ngram", "num_speculative_tokens": 4, "prompt_lookup_min": 1, "prompt_lookup_max": 4}}
