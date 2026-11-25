@@ -1,8 +1,0 @@
-# CPU KV offloading combined with lifecycle features (small GPU pool so pass-2 / re-sent prompts load from CPU)
-abort_offload|ckpt_llama|abort|shared|64,512|64|{"abort_steps": [20, 150, 500], "frac": 0.25}|{"kv_offloading_size": 0.5, "num_gpu_blocks_override": 600}
-stops_offload|ckpt_llama|stops|shared|64,512|96|{"waves": 6, "wave_every": 40}|{"kv_offloading_size": 0.5, "num_gpu_blocks_override": 600}
-lora_mix_offload|ckpt_llama|lora_mix|random|64,512|16|{"passes": 2}|{"max_loras": 2, "kv_offloading_size": 0.5, "num_gpu_blocks_override": 300}
-lora_mix_offload_simple|ckpt_llama|lora_mix|random|64,512|16|{"passes": 2}|{"max_loras": 2, "kv_offloading_size": 0.5, "num_gpu_blocks_override": 300}
-sleep_offload_keepconn|ckpt_llama|sleep|shared|512|64|{"at": 60, "level": 1, "mode": "keep", "reset_connector": false}|{"enable_sleep_mode": true, "kv_offloading_size": 0.5, "num_gpu_blocks_override": 600}
-nfork_offload|ckpt_llama|nfork|shared|64,512|32|{"n_fork": 4, "passes": 2}|{"kv_offloading_size": 0.5, "num_gpu_blocks_override": 500}
-plp_start_offload|ckpt_llama|plp|shared|64,512|32|{"frac": 0.5, "passes": 2, "start": "random", "skip_read": false}|{"kv_offloading_size": 0.5, "num_gpu_blocks_override": 400}

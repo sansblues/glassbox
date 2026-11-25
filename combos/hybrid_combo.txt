@@ -1,3 +1,0 @@
-hy_abort|ckpt_hybrid|abort|shared|64,512|24|{"abort_steps": [20, 150, 500], "frac": 0.25}|{"enable_prefix_caching": true, "num_gpu_blocks_override": 40, "max_num_seqs": 16, "max_num_batched_tokens": 256}
-hy_stops|ckpt_hybrid|stops|shared|64,512|48|{"waves": 6, "wave_every": 40}|{"enable_prefix_caching": true, "num_gpu_blocks_override": 40, "max_num_seqs": 16}
-hy_nfork|ckpt_hybrid|nfork|shared|64,512|16|{"n_fork": 3, "passes": 2}|{"enable_prefix_caching": true}

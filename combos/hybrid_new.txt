@@ -1,5 +1,0 @@
-# hybrid (GDN + attention, align mode block 576): preemption + prefix caching + chunked prefill together
-hy_pc_preempt_chunk|ckpt_hybrid|shared|512,2048|24|--passes 2|{"enable_prefix_caching": true, "num_gpu_blocks_override": 40, "max_num_seqs": 16, "max_num_batched_tokens": 256}
-hy_relabel_preempt_chunk|ckpt_hybrid|relabel|512,1536|24|--passes 2|{"enable_prefix_caching": true, "num_gpu_blocks_override": 40, "max_num_seqs": 16, "max_num_batched_tokens": 512}
-hy_all5|ckpt_hybrid|shared|64,512|24|--passes 2|{"enable_prefix_caching": true, "num_gpu_blocks_override": 40, "max_num_seqs": 16, "max_num_batched_tokens": 256, "speculative_config": {"method": "ngram", "num_speculative_tokens": 3, "prompt_lookup_max": 2, "prompt_lookup_min": 1}}
-hy_offload|ckpt_hybrid|shared|512|32|--passes 2|{"enable_prefix_caching": true, "kv_offloading_size": 0.5, "num_gpu_blocks_override": 40, "max_num_seqs": 16}
