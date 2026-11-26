@@ -15,8 +15,6 @@ MLPs are zero. Symbols use 63-dim low-coherence codes (4096 symbols, max positiv
 """
 import argparse, json, math, os
 import numpy as np
-import torch
-from safetensors.torch import save_file
 
 # ---------------------------------------------------------------- token layout
 BOS, SEP, MISS, PAD = 0, 1, 2, 3
@@ -159,7 +157,8 @@ def write_lora(ckpt, out, kind, r=64):
       oflip: o_proj delta = -2 x the output-code weights -> the flip is applied at each step; the KV cache is untouched.
       zero:  all-zero v_proj delta (output == base model).
     """
-    from safetensors.torch import load_file
+    import torch
+    from safetensors.torch import load_file, save_file
     sd = load_file(os.path.join(ckpt, "model.safetensors"))
     cfg = json.load(open(os.path.join(ckpt, "config.json")))
     D, H, KV, dh = cfg["hidden_size"], cfg["num_attention_heads"], cfg["num_key_value_heads"], cfg["head_dim"]
@@ -217,6 +216,7 @@ def reference_next(ctx, K):
 
 # ---------------------------------------------------------------- design helpers
 def rope_inv_freq(theta, dh):
+    import torch
     return (1.0 / (theta ** (torch.arange(0, dh, 2, dtype=torch.float) / dh))).double().numpy()
 
 
@@ -237,6 +237,7 @@ def lp_amplitudes(w, L):
 
 def low_coherence_codes(K, d, seed, iters=3000, device="cuda"):
     """K unit vectors (K/2 optimised directions + their negatives)."""
+    import torch
     g = torch.Generator(device="cpu").manual_seed(seed)
     X = torch.randn(K // 2, d, generator=g).to(device)
     X.requires_grad_(True)
@@ -262,6 +263,8 @@ def max_pos_coherence(C):
 # ---------------------------------------------------------------- construction
 def build(arch="llama", K=4096, out="ckpt_llama", gap1=40.0, gap2=40.0, alpha=100.0,
           theta=1e12, Lmax=32768, seed=0, D=384, codes_cache=None):
+    import torch
+    from safetensors.torch import save_file
     dh, H, KV = 128, 4, 2
     DC = 63                                   # code dim
     eps = 1e-6

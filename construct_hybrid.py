@@ -24,8 +24,6 @@ lo (128 dims) + one-hot hi (16 dims) blocks.  Layers (MLPs are zero):
 """
 import argparse, json, math, os
 import numpy as np
-import torch
-from safetensors.torch import save_file
 
 from construct import (BOS, SEP, MISS, PAD, NSPEC, key_tok, ptr_tok, is_key, is_ptr, sym, make_prompt,
                        make_prefix, make_prompt_shared, relabel, write_tokenizer)
@@ -74,6 +72,8 @@ def reference_next(ctx, K):
 
 # ---------------------------------------------------------------- construction
 def build(out, U=40.0, G=40.0, c=60.0, zc=20.0, D=1024, seed=0, ssm_dtype="float32", theta=1e7):
+    import torch
+    from safetensors.torch import save_file
     K = LO * HI
     V = NSPEC + 2 * K
     B0 = math.sqrt(D)                         # ballast in the ONE dim: residual RMS ~ 1 whatever the content
