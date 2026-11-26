@@ -4,7 +4,7 @@ Serve the checkpoint with any engine (vLLM, SGLang, TensorRT-LLM, ...), then:
   python check.py http://localhost:8000 ckpt_llama
 Engine features under test (prefix caching, chunked prefill, preemption, ...) are the server's own flags.
 """
-import argparse, json, os, sys, urllib.request
+import argparse, json, os, sys, urllib.error, urllib.request
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 
@@ -16,8 +16,11 @@ Floor = 30.0  # clean runs never go below 38.5 nats
 
 def post(url, body):
     req = urllib.request.Request(url, json.dumps(body).encode(), {"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=600) as r:
-        return json.load(r)
+    try:
+        with urllib.request.urlopen(req, timeout=600) as r:
+            return json.load(r)
+    except urllib.error.HTTPError as e:
+        sys.exit(f"{e}: {e.read().decode()[:500]}")
 
 
 def model_of(url):
@@ -33,7 +36,7 @@ def token_id(s, vocab):
 def run(url, model, prompt, steps, vocab):
     """Greedy completion of a token-id prompt: (token ids, top-1 minus top-2 logprob per step)."""
     out = post(f"{url}/v1/completions", dict(model=model, prompt=prompt, max_tokens=steps, temperature=0,
-                                              logprobs=2, ignore_eos=True))
+                                              logprobs=2, ignore_eos=True, return_tokens_as_token_ids=True))
     lp = out["choices"][0]["logprobs"]
     tokens = [token_id(t, vocab) for t in lp["tokens"]]
     margins = [a - b for a, b in (sorted(d.values(), reverse=True)[:2] for d in lp["top_logprobs"])]
@@ -69,16 +72,18 @@ def main():
                 name = f"m={label}" if isinstance(label, int) else label
                 key = f"pass {p + 1}, {name}" if a.passes > 1 else name
                 t = tally[key]
-                ok = tokens == w and min(margins) >= Floor
-                t[0] += ok; t[1] += 1; t[2] = min(t[2], min(margins))
+                low = min(margins, default=0.0)
+                ok = tokens == w and low >= Floor
+                t[0] += ok; t[1] += 1; t[2] = min(t[2], low)
                 if not ok:
                     step = next((i for i, (x, y) in enumerate(zip(tokens, w)) if x != y), None)
-                    failures.append((key, len(q), step, min(margins)))
+                    where = (f"first wrong token at step {step}" if step is not None else
+                             f"only {len(tokens)} of {len(w)} tokens" if len(tokens) != len(w) else "right tokens")
+                    failures.append((key, len(q), where, low))
 
     for key, (ok, n, low) in tally.items():
         print(f"{key}: {ok}/{n} exact, min margin {low:.2f}")
-    for key, length, step, low in failures[:3]:
-        where = f"first wrong token at step {step}" if step is not None else "right tokens"
+    for key, length, where, low in failures[:3]:
         print(f"  failed: {key}, prompt of {length} tokens, {where}, min margin {low:.2f}")
     print("PASS" if not failures else f"FAIL: {len(failures)} of {sum(t[1] for t in tally.values())}")
     sys.exit(bool(failures))
