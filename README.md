@@ -29,6 +29,16 @@ nats. Clean runs never go below 38.5.
 
 On a laptop RTX 3050 Ti.
 
+**New bugs on vLLM main,** all with fixes:
+
+| Bug | Fix |
+|---|---|
+| [#69989](https://github.com/vllm-project/vllm/issues/69989): block copies crash without pinned memory | [#69991](https://github.com/vllm-project/vllm/pull/69991) |
+| [#70064](https://github.com/vllm-project/vllm/issues/70064): GDN ReplaySSM loses the state update of a one-token prompt chunk | [#70065](https://github.com/vllm-project/vllm/pull/70065) |
+| [#70066](https://github.com/vllm-project/vllm/issues/70066): Mamba prefix caching caches a block's state under the wrong position | [#70068](https://github.com/vllm-project/vllm/pull/70068) |
+
+The last two barely change a real model's output, which is why they were easy to miss.
+
 **vLLM 0.34.0 is exact everywhere:**
 
 | Checkpoint | Configurations | Sequences |
