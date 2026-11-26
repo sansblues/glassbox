@@ -49,6 +49,10 @@ The last two barely change a real model's output, which is why they were easy to
 The configurations cover prefix caching, chunked prefill, preemption, CUDA graphs, three attention
 backends, n-gram speculative decoding, and recurrent-state caching.
 
+**Speculative decoding with a draft model is exact on vLLM main.** `make_drafter.py` builds a drafter whose
+proposals are accepted and rejected in a fixed pattern. 16 configurations across both checkpoints cover rejection at
+the first and second draft position, full acceptance, prefix caching, chunked prefill and preemption.
+
 **Historical bugs are caught.** Each was replayed at adjacent commits:
 
 | Bug | Pre-fix | Fix |
@@ -68,13 +72,16 @@ pip install torch numpy scipy safetensors tokenizers
 python construct.py --arch llama --out ckpt_llama      # or qwen3
 python construct_hybrid.py --out ckpt_hybrid
 python make_ctl.py                                     # negative control: must fail
+python make_drafter.py ckpt_llama --out ckpt_drafter   # draft model for speculative decoding
 
 vllm serve ckpt_llama --enable-prefix-caching          # or SGLang, TensorRT-LLM, ...
 python check.py http://localhost:8000 ckpt_llama --family shared --passes 2
 ```
 
 `check.py` prints exact matches and the lowest margin per prompt size, and exits with 1 on any
-failure. The features you test are the server's own flags.
+failure. The features you test are the server's own flags. For speculative decoding, serve the checkpoint
+with the drafter, for vLLM with
+`--speculative-config '{"method": "draft_model", "model": "ckpt_drafter", "num_speculative_tokens": 3}'`.
 
 For vLLM there is also an in-process matrix and the historical bug replays. Set `PY` to the Python of
 the build under test:
