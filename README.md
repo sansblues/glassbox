@@ -63,6 +63,8 @@ backends, n-gram speculative decoding, and recurrent-state caching.
 Build a checkpoint, serve it with any engine that has an OpenAI-compatible API, and check it:
 
 ```sh
+pip install torch numpy scipy safetensors tokenizers
+
 python construct.py --arch llama --out ckpt_llama      # or qwen3
 python construct_hybrid.py --out ckpt_hybrid
 python make_ctl.py                                     # negative control: must fail
