@@ -1,4 +1,4 @@
-"""Glass-box checkpoint for a HYBRID architecture (Qwen3.5 dense: Gated DeltaNet + gated full attention).
+"""Known-answer checkpoint for a HYBRID architecture (Qwen3.5 dense: Gated DeltaNet + gated full attention).
 
 Same task and expected() as construct.py (pointer chase over 2-token records), optionally with PAD fillers after
 BOS so the prompt length can be any integer:
@@ -205,6 +205,7 @@ def build(out, U=40.0, G=40.0, c=60.0, zc=20.0, D=1024, seed=0, ssm_dtype="float
     cfg = dict(
         architectures=["Qwen3_5ForCausalLM"], model_type="qwen3_5_text", vocab_size=V, hidden_size=D,
         intermediate_size=inter, num_hidden_layers=len(layer_types), layer_types=layer_types,
+        full_attention_interval=3,  # SGLang reads the layer pattern from this, not from layer_types
         num_attention_heads=H, num_key_value_heads=KV, head_dim=dh, hidden_act="silu",
         max_position_embeddings=Lmax, rms_norm_eps=eps, attention_bias=False, attention_dropout=0.0,
         rope_parameters={"rope_type": "default", "rope_theta": theta, "partial_rotary_factor": 0.25,
