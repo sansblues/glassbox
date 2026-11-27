@@ -64,24 +64,38 @@ the first and second draft position, full acceptance, prefix caching, chunked pr
 
 ## Usage
 
-Build a checkpoint, serve it with any engine that has an OpenAI-compatible API, and check it:
+Serve a checkpoint from the Hugging Face Hub with any engine that has an OpenAI-compatible API, and check
+it. The checker only needs numpy:
+
+```sh
+pip install numpy
+vllm serve llmkat/llama --enable-prefix-caching        # or SGLang, TensorRT-LLM, ...
+python check.py http://localhost:8000 llmkat/llama --family shared --passes 2
+```
+
+`check.py` prints exact matches and the lowest margin per prompt size, and exits with 1 on any
+failure. The features you test are the server's own flags.
+
+| Checkpoint | What it is |
+|---|---|
+| [llmkat/llama](https://huggingface.co/llmkat/llama), [llmkat/qwen3](https://huggingface.co/llmkat/qwen3) | the pointer chase in Llama and Qwen3 |
+| [llmkat/hybrid](https://huggingface.co/llmkat/hybrid) | Qwen3.5 with Gated DeltaNet layers, for recurrent state |
+| [llmkat/control](https://huggingface.co/llmkat/control) | a negative control: `check.py` must fail on it |
+| [llmkat/drafter](https://huggingface.co/llmkat/drafter), [llmkat/hybrid-drafter](https://huggingface.co/llmkat/hybrid-drafter) | draft models for speculative decoding with `llama` and `hybrid` |
+
+For speculative decoding, serve the checkpoint with its drafter, for vLLM with
+`--speculative-config '{"method": "draft_model", "model": "llmkat/drafter", "num_speculative_tokens": 3}'`.
+
+To build the checkpoints yourself:
 
 ```sh
 pip install torch numpy scipy safetensors tokenizers
 
 python construct.py --arch llama --out ckpt_llama      # or qwen3
 python construct_hybrid.py --out ckpt_hybrid
-python make_ctl.py                                     # negative control: must fail
-python make_drafter.py ckpt_llama --out ckpt_drafter   # draft model for speculative decoding
-
-vllm serve ckpt_llama --enable-prefix-caching          # or SGLang, TensorRT-LLM, ...
-python check.py http://localhost:8000 ckpt_llama --family shared --passes 2
+python make_ctl.py                                     # writes ckpt_hybrid_ctl, the negative control
+python make_drafter.py ckpt_llama --out ckpt_drafter
 ```
-
-`check.py` prints exact matches and the lowest margin per prompt size, and exits with 1 on any
-failure. The features you test are the server's own flags. For speculative decoding, serve the checkpoint
-with the drafter, for vLLM with
-`--speculative-config '{"method": "draft_model", "model": "ckpt_drafter", "num_speculative_tokens": 3}'`.
 
 For vLLM there is also an in-process matrix and the historical bug replays. Set `PY` to the Python of
 the build under test:

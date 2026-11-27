@@ -1,7 +1,7 @@
-"""Check a serving engine against a glass-box checkpoint, over its OpenAI-compatible completions API.
+"""Check a serving engine against a known-answer checkpoint, over its OpenAI-compatible completions API.
 
 Serve the checkpoint with any engine (vLLM, SGLang, TensorRT-LLM, ...), then:
-  python check.py http://localhost:8000 ckpt_llama
+  python check.py http://localhost:8000 llmkat/llama      # a Hub id, or a local checkpoint folder
 Engine features under test (prefix caching, chunked prefill, preemption, ...) are the server's own flags.
 """
 import argparse, json, os, sys, urllib.error, urllib.request
@@ -21,6 +21,14 @@ def post(url, body):
             return json.load(r)
     except urllib.error.HTTPError as e:
         sys.exit(f"{e}: {e.read().decode()[:500]}")
+
+
+def read_json(ckpt, name):
+    """A JSON file of the checkpoint: from a local folder, or from the Hugging Face Hub for an id like llmkat/llama."""
+    if os.path.isdir(ckpt):
+        return json.load(open(os.path.join(ckpt, name)))
+    with urllib.request.urlopen(f"https://huggingface.co/{ckpt}/resolve/main/{name}", timeout=60) as r:
+        return json.load(r)
 
 
 def model_of(url):
@@ -46,7 +54,7 @@ def run(url, model, prompt, steps, vocab):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("url", help="server root, e.g. http://localhost:8000")
-    ap.add_argument("ckpt", help="the checkpoint directory the server loaded")
+    ap.add_argument("ckpt", help="the checkpoint the server loaded: a local folder or a Hub id like llmkat/llama")
     ap.add_argument("--family", default="random", choices=["random", "shared", "relabel", "mix", "boundary"])
     ap.add_argument("--ms", default="64,512,2048", help="records per prompt")
     ap.add_argument("--n", type=int, default=128, help="prompts per m")
@@ -56,9 +64,9 @@ def main():
     ap.add_argument("--seed", type=int, default=0)
     a = ap.parse_args()
 
-    design = json.load(open(os.path.join(a.ckpt, "design.json")))
+    design = read_json(a.ckpt, "design.json")
     task = construct_hybrid if design.get("arch") == "qwen3_5_hybrid" else construct
-    vocab = json.load(open(os.path.join(a.ckpt, "tokenizer.json")))["model"]["vocab"]
+    vocab = read_json(a.ckpt, "tokenizer.json")["model"]["vocab"]
     url, K = a.url.rstrip("/"), design["K"]
     model = model_of(url)
     prompts = build_prompts(a.family, [int(m) for m in a.ms.split(",")], a.n, K, a.seed, a.block)
