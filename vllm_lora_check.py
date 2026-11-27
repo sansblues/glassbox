@@ -1,4 +1,4 @@
-"""Glass-box LoRA check: the same prompts generated in phases, each phase under one LoRA adapter, in ONE engine.
+"""Known-answer LoRA check: the same prompts generated in phases, each phase under one LoRA adapter, in ONE engine.
 
   python vllm_lora_check.py --name lora_samename --phases vflip:glass,zero:glass --ms 64,512 --n 128
 A phase is kind:lora_name. kind is vflip or oflip (layer-2 pointer code negated -> expected_vflip), zero (all-zero adapter ->

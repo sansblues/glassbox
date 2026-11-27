@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# vLLM engine-feature matrix for the hybrid (Qwen3.5 GDN + attention) glass-box checkpoint.
+# vLLM engine-feature matrix for the hybrid (Qwen3.5 GDN + attention) known-answer checkpoint.
 # One fresh engine per line through vrun.sh (takes the shared GPU lock, memory gate, cap, timeout), using this
 # project's own copy vllm_check_hybrid.py.   Usage: ./vllm_sweep_hybrid.sh [name-regex]
 # Hybrid block size (align mode) is 576 with the fp32 GDN state and 320 with a bf16 state.

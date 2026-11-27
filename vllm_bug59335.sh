@@ -2,7 +2,7 @@
 # Historical-bug replay: vllm-project/vllm#30931 / #42125, fixed by #59335 (c055c1e0, 2026-10-01). Prefix-cache block
 # hashes keyed a LoRA adapter by its NAME only, so a second adapter registered under the same name (different
 # lora_int_id and path) reuses KV blocks computed with the first one. Pre-fix = parent d7c55116 (adjacent commits).
-# Glass-box: phase 1 runs every prompt with the vflip adapter (layer-2 V negated in the KV cache -> expected_vflip),
+# Known-answer: phase 1 runs every prompt with the vflip adapter (layer-2 V negated in the KV cache -> expected_vflip),
 # phase 2 runs the SAME prompts with the zero adapter (-> expected). A cross-adapter cache hit makes phase 2 read
 # phase 1's negated values: antipodal pointer tokens from the first lookup on.
 # VLLM_USE_FLASHINFER_SAMPLER=0: this build JIT-compiles FlashInfer's sampler (no nvcc here); greedy is unaffected.

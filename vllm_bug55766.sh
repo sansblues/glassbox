@@ -16,7 +16,7 @@ while IFS='|' read -r name venv script args eng; do
 done <<LIST
 # real model
 real0301v1_ngram5_piecewise|vllm-lorafix|vllm_real_55766.py|--mode test --nblocks 1,2,3 --rs 5-7|{"compilation_config": {"cudagraph_mode": "PIECEWISE", "cudagraph_capture_sizes": [1, 2, 4, 6, 8, 12]}}
-# glass-box ckpt_hybrid: lone boundary prompts N*block + r, two passes, ngram k=5
+# known-answer ckpt_hybrid: lone boundary prompts N*block + r, two passes, ngram k=5
 gb_pre_ngram5_seq|vllm-lorafix|vllm_check_55766.py|--ckpt ckpt_hybrid --family boundary --block 544 --nblocks 1,2,3 --rs 4-8 --n 2 --passes 2 --sequential 1|{"enable_prefix_caching": true, "max_num_batched_tokens": 576, $NG}
 gb_pre_ngram5_seq_piecewise|vllm-lorafix|vllm_check_55766.py|--ckpt ckpt_hybrid --family boundary --block 544 --nblocks 1,2,3 --rs 5-7 --n 2 --passes 2 --sequential 1|{"enable_prefix_caching": true, "max_num_batched_tokens": 576, "compilation_config": {"cudagraph_mode": "PIECEWISE"}, $NG}
 gb_034_ngram5_seq|vllm-venv|vllm_check_55766.py|--ckpt ckpt_hybrid --family boundary --block 576 --nblocks 1,2,3 --rs 5-7 --n 1 --passes 2 --sequential 1|{"enable_prefix_caching": true, "max_num_batched_tokens": 576, $NG}

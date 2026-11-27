@@ -1,4 +1,4 @@
-"""Glass-box checkpoint: hand-built weights for a real HF architecture whose greedy
+"""Known-answer checkpoint: hand-built weights for a real HF architecture whose greedy
 output is a closed-form function of which KV entries were read.
 
 Task (pointer chase over 2-token records):
@@ -150,7 +150,7 @@ def expected_vflip(prompt_ids, K, n_steps=None):
 
 
 def write_lora(ckpt, out, kind, r=64):
-    """PEFT LoRA adapter (rank r, alpha r: scaling 1) on layer 2 of a glass-box checkpoint. Both flips negate the
+    """PEFT LoRA adapter (rank r, alpha r: scaling 1) on layer 2 of a known-answer checkpoint. Both flips negate the
     63-dim pointer code that layer 2 copies, so after k_y the model emits p_flip(nxt y) (expected_vflip):
       vflip: v_proj delta = -2 x the value-code weights -> the flip lives in the KV cache (layer-2 V of every record).
              q_proj/k_proj get zero deltas so every qkv slice is present.

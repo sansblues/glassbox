@@ -1,5 +1,5 @@
 """(#55766 copy of vllm_check_hybrid.py: adds --sequential.)
-Run a glass-box checkpoint through vLLM (offline LLM, batched) and compare greedy outputs to expected().
+Run a known-answer checkpoint through vLLM (offline LLM, batched) and compare greedy outputs to expected().
 
 One engine configuration per process (a fresh LLM per config keeps runs independent):
   python vllm_check.py --ckpt ckpt_llama --name default --engine '{}' --ms 64,512,2048 --n 128
