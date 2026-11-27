@@ -1,9 +1,9 @@
-# glassbox
+# llmkat
 
-Does your serving engine read the right cache?
+Known-answer tests for LLM serving engines. Does yours read the right cache?
 
 A stale KV block, a shifted position or a lost recurrent state barely moves a real model's output, so
-bugs like these slip through every test. glassbox builds checkpoints for real architectures by hand,
+bugs like these slip through every test. llmkat builds checkpoints for real architectures by hand,
 so the correct output is known in advance and every correct token wins by about 39 nats. An engine
 that reads the right cache reproduces the output exactly. Anything else is a wrong token, and the
 token tells you what was read.
@@ -90,6 +90,13 @@ the build under test:
 ./vllm_sweep.sh ckpt_llama
 ./vllm_bug64279.sh
 ```
+
+## Related work
+
+[KVGuard](https://arxiv.org/abs/2611.06138) instruments vLLM and SGLang to catch memory-safety violations in the
+KV cache, such as use-after-free and out-of-bounds reads. llmkat needs no instrumentation, so it works on any
+engine. It also catches reads that are legal but wrong, such as a state cached under the wrong position, and it
+covers recurrent state.
 
 ## Limits
 
