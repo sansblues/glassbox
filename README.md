@@ -79,12 +79,12 @@ failure. The features you test are the server's own flags.
 | Checkpoint | What it is |
 |---|---|
 | [llmkat/llama](https://huggingface.co/llmkat/llama), [llmkat/qwen3](https://huggingface.co/llmkat/qwen3) | the pointer chase in Llama and Qwen3 |
-| [llmkat/hybrid](https://huggingface.co/llmkat/hybrid) | Qwen3.5 with Gated DeltaNet layers, for recurrent state |
-| [llmkat/control](https://huggingface.co/llmkat/control) | a negative control: `check.py` must fail on it |
-| [llmkat/drafter](https://huggingface.co/llmkat/drafter), [llmkat/hybrid-drafter](https://huggingface.co/llmkat/hybrid-drafter) | draft models for speculative decoding with `llama` and `hybrid` |
+| [llmkat/qwen3.5](https://huggingface.co/llmkat/qwen3.5) | Qwen3.5, a Gated DeltaNet hybrid, for recurrent state |
+| [llmkat/qwen3.5-negative-control](https://huggingface.co/llmkat/qwen3.5-negative-control) | `qwen3.5` miswired on purpose: `check.py` must fail on it |
+| [llmkat/llama-draft](https://huggingface.co/llmkat/llama-draft), [llmkat/qwen3.5-draft](https://huggingface.co/llmkat/qwen3.5-draft) | draft models for speculative decoding: `llama-draft` serves `llama` and `qwen3` |
 
 For speculative decoding, serve the checkpoint with its drafter, for vLLM with
-`--speculative-config '{"method": "draft_model", "model": "llmkat/drafter", "num_speculative_tokens": 3}'`.
+`--speculative-config '{"method": "draft_model", "model": "llmkat/llama-draft", "num_speculative_tokens": 3}'`.
 
 To build the checkpoints yourself:
 
