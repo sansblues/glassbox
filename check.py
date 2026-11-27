@@ -69,6 +69,8 @@ def main():
     vocab = read_json(a.ckpt, "tokenizer.json")["model"]["vocab"]
     url, K = a.url.rstrip("/"), design["K"]
     model = model_of(url)
+    if os.path.basename(model.rstrip("/")) != os.path.basename(a.ckpt.rstrip("/")):
+        print(f"warning: the server serves {model}, but you asked to check {a.ckpt}", file=sys.stderr)
     prompts = build_prompts(a.family, [int(m) for m in a.ms.split(",")], a.n, K, a.seed, a.block)
 
     tally, failures = defaultdict(lambda: [0, 0, float("inf")]), []
